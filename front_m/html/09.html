@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS 선택자</title>
+<style>
+    * {
+        border:1px solid red;/* solid 실선, dashed 파선, dotted 점선 */
+        /*
+            CSS에서의 색상값 : 
+            red(기본 명칭이 정해진 이름),
+            #FF0000(rgb 16진수),
+            #F00(앞뒤 같으면 생략가능)
+            rgb(255, 0, 0)
+            rgba(255, 0, 0, .1)
+        */
+    }
+    li {background-color: green;}/* 요소선택자 */
+    
+    #text_bold {font-weight: bold; color:#FFF;}
+    
+    .border_dashed {border: 3px dashed red;}
+    
+    span {background-color: yellow; color: hotpink;}
+    .ital {font-style: italic;}
+    
+    li > em {
+        font-size: 30px;
+    }
+    
+    span strong {
+        color: red;
+    }
+    
+    .vir strong::before {content:"[[";}
+    .vir strong::after {content: "]]";}
+    li:first-child {background-color: aqua;}
+</style>
+</head>
+<body>
+<h1>CSS 선택자(Selector)</h1>
+<h2>선택자란?</h2>
+<p>CSS를 적용하는 대상을 불러오는 <em>경로</em>법을 말함.</p>
+<h2>선택자의 종류</h2>
+<ul>
+    <li>전체선택자(*) : <span>모든 요소</span>를 선택</li>
+    <li>요소선택자(태그) : 요소의 <span>기본속성</span>을 지정</li>
+    <li id="text_bold">아이디선택자(id) : <span class="ital">아이디</span>값으로 호출하여 지정</li>
+    <li class="border_dashed">클래스선택자(class) : <span class="ital">클래스</span>명으로 호출하여 지정</li>
+    <li>자식 선택자(>) : 바로 아래 단계의 <em>태그</em>만 선택</li>
+    <li>자손(하위) 선택자( ) : <span><strong>하위</strong> 요소</span>들 모두 선택</li>
+    <li class="vir">가상요소(before, after) : <strong>선택자 앞, 뒤로 콘텐츠를 추가</strong></li>
+    <li>가상 클래스 : nth-child, checked, focus...</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>랜덤한글 타자게임</title>
+<style>
+    * {margin:0;padding:0}
+    #wrap {margin:auto;max-width:1000px;width:100%;}
+    h1 {text-align:center;margin:20px;}
+    h2 {text-align:center;}
+    #q {text-align:center;font:100px bold Tahoma,sans-serif;letter-spacing:-10px;}
+    #bar {background:#f30;width:100%;margin-top:30px;height:5px;}
+    #answer {border:3px solid #ccc;outline:none;text-align:center;font-size:30px; padding:20px; width:600px; display:block;margin:50px auto; transition:all .2s ease;}
+    #over {background-color:rgba(0,0,0,.8);position:fixed;left:0;top:0;width:100%;height:100%;display:none;justify-content:center;align-items:center;transition:all 2s ease;opacity:0;}
+    #over #replay {display:block;padding:20px 100px;font-size:40px;cursor:pointer;}
+</style>
+</head>
+<body>
+<div id="wrap">
+    <h1>랜덤한글 타자게임</h1>
+    <h2>레벨 <span id="level">0</span> <span id="stage">(0/0)</span></h2>
+    <p id="q">얇뷁</p>
+    <div id="bar"></div>
+    <input type="text" id="answer">
+    <div id="over"><button id="replay">REPLAY</button></div>
+</div>
+    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>    
+<script>
+    var q="",level=1,stage=1,total_stage=2;
+    // 랜덤한글 추출
+    function random_hangul() {
+        return String.fromCharCode( 44031 + Math.ceil( 11172 * Math.random() ) );
+    }
+    
+    // 새문제 출제
+    function new_word() {
+        q="";
+        for( var i=0; i<level; i++ ) {
+             q += random_hangul();
+        }
+        $("#q").text(q);
+        $("#level").text(level);
+        $("#stage").text("("+stage+"/"+total_stage+")");
+        $("#answer").focus();
+    }
+    
+    // 엔터기능 : 엔터키를 누르면 문제와 답변이 같은지 체크
+    $("#answer").keydown(function(e){
+        if(e.keyCode==13) $(this).val()==q ? correct() : wrong(); 
+    });
+    
+    // 정답함수
+    function correct() {
+        //alert("맞음");
+        stage++;
+        if(stage>total_stage) {
+            level++;
+            stage=1;
+        }
+        new_word();
+        count();
+        $("#answer").val("");
+    }
+    
+    // 오답함수
+    function wrong() {
+        // alert("틀림");
+        $("#answer").css("background-color","red")
+                    .delay(200)
+                    .queue(function(next){
+                        $(this).css("background-color","#fff");
+                        next();
+                    });
+                    //queue : 대기열에 새로운 큐를 추가하는 메서드
+    }
+    
+    // 10초 카운트
+    function count() {
+        $("#bar").stop().width("100%");// 재호출시 애니메이션 초기화
+        $("#bar").animate({
+            width:0
+        },10000,"linear",over);
+    }
+    
+    // 게임오버 화면(#over)이 부드럽게 나오고 버튼에 포커스 
+    function over() {
+        $("#over").css("display","flex")
+                  .animate({opacity:1},500);
+        $("#replay").focus();
+    }
+    
+    // replay 버튼 이벤트
+    $("#replay").click(function(){
+        $("#over").hide();
+        level=1; stage=1;
+        new_word();
+        count();
+        $("#answer").val("").focus();
+    });
+    
+    count();
+    new_word();
+    
+    
+</script>
+</body>
+</html>

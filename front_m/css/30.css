@@ -1,0 +1,33 @@
+/* reset */
+* {margin: 0;padding:0;list-style: none;text-decoration: none; box-sizing: border-box;}
+input:focus {border:1px solid #1ac75e;}
+input {outline: none; display: block; border:1px solid #dadada;}
+
+/* common */
+.screen-out {display: none;}
+
+/* main */
+body {background-color: #f5f6f7;}
+#wrap {width: 748px; margin: auto; position:relative; padding-top: 62px;}
+h1 {
+    width:233px; height: 46px; background-image:url(../img/naver_logo.gif);text-indent: -9999px; overflow: hidden;margin: 0px auto 68px;}
+h1 a {display: block; width:233px; height: 46px;}
+#lang {border:1px solid #ccc;width:95px; height:30px; position: absolute; top:14px; right:0px; outline: none;}
+#lang:focus {border:1px solid #1ac75e;}
+fieldset {margin: auto; width: 460px;border:none;}
+fieldset input {padding-left: 17px; width: 100%; height: 52px; border: 1px solid 3dadada; font-size: 14px;}
+fieldset #pw {margin-top:14px; margin-bottom: 30px;}
+fieldset>p:nth-child(3)+input {border: 0;padding: 0; font:normal 24px/0 sans-serif; background-color: #1ac75e; color:white;
+width: 100%;}
+fieldset>p:nth-child(4)>input {width: 20px; height: 20px;}
+form {width:460;}
+#auto {display: none;}
+#wrap input[type="checkbox"] {width: 40px;background-image display:inline-block; margin: 0;}
+i.fa {font-size:28px; color:#cbcbd0; position:fixed;}
+#wrap input:checked+ i.fa {color: #1ac75e;}
+fieldset p:nth-child(6) {float:left; width: 130px;}
+fieldset p:nth-child(6) p {position:relative;}
+fieldset p:nth-child(7) {float:right; width: 200px;}
+#wrap fiedset #security {display: none;}
+fiedset #security::after {content: "OFF"; font:bold 10px/0 sans-serif}
+fiedset #security:checked::after {content: "ON"; font:bold 10px/0 sans-serif}

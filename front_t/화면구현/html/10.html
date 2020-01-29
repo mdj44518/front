@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>구체성</title>
+<style>
+    li>span {color:red !important;font-size:30px !important;} /* 구체성 0 0 0 2 */
+    #list>li>span {color:orange;}  /* 구체성 0 1 0 2 */
+    
+</style>
+</head>
+<body>
+<h1>구체성</h1>
+<h2>구체성이란?</h2>
+<p>CSS는 기본적으로 상속을 받는데 같은 요소에 상속받는 속성값들이 겹칠때 우선권을 가지는 순서</p>
+<h2>구체성의 우선순위</h2>
+<ul id="list">
+    <li>CSS(소스)의 순서가 나중에 올수록 구체성이 높다.</li>
+    <li>인라인에서는 콘텐츠와 가장 가까운 속성이 구체성이 높다.</li>
+    <li>인라인 > 아이디 > 클래스 > 태그</li>
+    <li><span>구체성 점수</span> : 인라인 아이디 클래스 태그 </li>
+    <li>속성값에 !important를 추가하면 구체성을 최상위로 올려줌.</li>
+    <li>플랫폼의 중요속성 > HTML중요속성 > 플랫폼(소프트웨어,하드웨어)일반속성 > HTML일반속성  : important속성의 플랫폼의 일반속성을 무시하므로 사용을 자제하는 것이 좋음. </li>
+</ul>
+<h2></h2>
+</body>
+</html>

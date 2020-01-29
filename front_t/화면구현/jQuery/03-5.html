@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 기타 이벤트</title>
+<style>
+
+</style>
+</head>
+<body>
+<h1>jQuery : change() 이벤트</h1>
+<select id="site" name="site">
+    <option value="">▦▦▦사이트선택▦▦▦</option>
+    <optgroup label="국내사이트">
+        <option value="naver.com">네이버</option>
+        <option value="daum.net">다음</option>
+        <option value="nate.com">네이트</option>
+    </optgroup>
+    <optgroup label="해외사이트">
+        <option value="google.com">구글</option>
+        <option value="yahoo.com">야후</option>
+        <option value="facebook.com">페이스북</option>
+    </optgroup>
+</select>
+<p id="msg"></p>
+<label>아이디 </label><input type="text" name="id" id="id">
+    <span id="msg2"></span><br>
+<label>비밀번호 </label><input type="password" name="pw" id="pw">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    // 사이트 선택시 10초후 이동하기
+    // location.href="http://naver.com";
+//    var i=11;
+//    $("#site").change(function(){
+//        var url = $("#site").val(),
+//            site = $("#site option:selected").text();
+//        setInterval(function(){
+//            i--;
+//            $("#msg").text(i+"초후에 "+site+"("+url+")"+"로 이동합니다.");
+//            if(i<=1) location.href="http://"+url;} 
+//        },1000);
+//    });
+    
+    // 입력완료시 유효성 자동체크하기
+    // "^[a-zA-Z]{1}[a-zA-Z0-9_]{4,11}$"
+    // 시작은 영문으로만, '_'+영문+숫자, 5~12글자수
+    var reg1 = /^[a-zA-Z]/, // 첫글자 영문체크
+        reg2 = /^[a-zA-Z0-9_+]*$/; // 영문+숫자+'_'
+        
+    $("#id").change(function(){
+        var ids = $("#id").val();
+//        if(reg1.test(ids)) {
+//            alert("유효성 맞음");
+//        } else {
+//            alert("유효성 틀림");
+//        }
+        var result = "";
+        if(!reg1.test(ids)) result += "첫글자는 영문만";
+        if(!reg2.test(ids)) result += "아이디는 영문+숫자+_만";
+        if(ids.length<5 || ids.length>12) result += "아이디 글자수 5~12자로";
+        $("#msg2").text(result);
+    });
+    
+</script>
+</body>
+</html>

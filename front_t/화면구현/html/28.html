@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2단메뉴</title>
+<style>
+    * {margin:0;padding:0;list-style: none; text-decoration: none;}
+    h1, h2 {margin:20px;}
+    
+    /* 풀다운 가로메뉴 */
+    #full {overflow: hidden;margin-bottom: 150px;}
+    #full>li {float:left;}
+    #full>li:hover>a {background-color:#000;}/* 현재위치 표현 */
+    #full a {background-color:#30a6e6;color:#fff;padding:10px 20px;display: block;}
+    #full a:hover {background-color:#000;}
+    #full ul {position: absolute;opacity: 0;transition: all .5s ease;height:0;overflow: hidden;}/* 서브메뉴 ul */
+    #full>li:hover ul {opacity:1;height:200px;}
+    
+    /* 세로메뉴 */
+    #vertical {width:150px;}
+    #vertical>li {position:relative;}
+    #vertical>li:hover>a {background-color:#000;}/* 현재위치 표현 */
+    #vertical a {background-color:#30a6e6;color:#fff;padding:10px 20px;display: block;text-align: center;white-space: nowrap;}
+    #vertical a:hover {background-color:#000;}
+    #vertical ul {position: absolute;opacity: 0;transition: all .5s ease;width:0;overflow: hidden;top:0;left:150px;}/* 서브메뉴 ul */
+    #vertical>li:hover ul {opacity:1;width:150px;}
+</style>
+</head>
+<body>
+<h1>2단(Depth)메뉴</h1>
+<h2>풀다운메뉴</h2>
+<ul id="full">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">HTML5</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">CSS3</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+</ul>
+<h2>세로메뉴</h2>
+<ul id="vertical">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">HTML5</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">CSS3</a>
+        <ul>
+            <li><a href="#">SubMenu 1</a></li>
+            <li><a href="#">SubMenu 2</a></li>
+            <li><a href="#">SubMenu 3</a></li>
+            <li><a href="#">SubMenu 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>매개변수를 활용한 함수</title>
+
+</head>
+<body>
+<h1>매개변수를 활용한 함수</h1>
+<div></div>
+<input type="text" id="name" placeholder="이름">
+<input type="text" id="area" placeholder="사는 곳">
+<button>확인</button>
+<script>
+    function myFnc(name, area) {
+        document.querySelector("div").innerHTML="이름 : "+name+" / 사는 곳 : "+area;
+    }
+    myFnc("홍길동","수원");
+    function newFnc() {
+        var user_name = document.getElementById("name").value;
+        var user_area = document.getElementById("area").value;
+        //return; // 함수중단
+        myFnc(user_name,user_area);
+        // newFnc(); // 재귀함수(반복문 효과)
+    }
+    document.querySelector("button").onclick = newFnc;
+    
+   
+</script>
+</body>
+</html>

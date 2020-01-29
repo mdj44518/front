@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>인접관계선택자</title>
+</head>
+<body>
+<h1>인접관계선택자</h1>
+<ul>
+    <li>내용1</li>
+    <li id="txt2">내용2</li>
+    <li class="blue">내용3</li>
+    <li>내용4</li>
+    <li>내용5</li>
+    <li class="blue">내용6<span>나는 스팬</span></li>
+    <li>내용7</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $("li").first().parents() //parent() : 부모
+        .css({"border" : "1px solid red", 
+              "background-color" : "#eee",
+              "color" : "green"});
+    $("ul").children().css("border", "2px solid green");
+    
+    //이전요소 prev() prevAll()  //다음요소= next() nextAll()
+    $("li:eq(3)").prev().css("background-color", "red");
+    $("li:eq(3)").nextUntil("li:last").css("font-style", "italic"); // Until 범위설정
+</script>
+</body>
+</html>

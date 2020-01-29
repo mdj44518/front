@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>효과 메서드</title>
+<style>
+    * {margin:0;padding:0;list-style:none;}
+    html,body {height:5000px;}
+    li {float:left;width:120px;margin:10px;overflow:hidden; }
+    a{display:block;height:183px;width:120px;text-align:center;}
+    span {display:block;text-align: center;cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>jQuery : 효과 메서드</h1>
+<ul id="movie">
+    <li><a href="#"><img src="img/poster1.jpg"></a>
+        <span>스파이더맨</span>
+    </li>
+    <li><a href="#"><img src="img/poster2.jpg"></a>
+        <span>알라딘</span>
+    </li>
+    <li><a href="#"><img src="img/poster3.jpg"></a>
+        <span>기방도령</span>
+    </li>
+    <li><a href="#"><img src="img/poster4.jpg"></a>
+        <span>진범</span>
+    </li>
+    <li><a href="#"><img src="img/poster5.jpg" width="120" height="183"></a>
+        <span>토이스토리</span>
+    </li>
+
+</ul>
+<button>스크롤 부드럽게 이동</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+<script>
+    $("h1").animate({
+        margin:"100px 0 0 50px"        
+    },1000,li1);
+    $("li:eq(0)").css("height",0)
+    function li1() {
+        $("li:eq(0)").animate({
+            height:"205px"
+        },1000);
+    }
+    $("button").click(function(){   
+        // 속성값을 이용할때 winow, document 객체를 선택자로...
+        // animate는 css 모션이므로 html, body를 선택자로.
+        $("html,body").animate({
+            scrollTop:3000
+        },500);
+    });  
+</script>
+</body>
+</html>

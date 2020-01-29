@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>문자객체 관련 메서드</title>
+<script>
+    document.write("<h1>문자객체</h1>");
+    var t = "Hello Thank you good luck to you";
+    document.write("원본객체 : Hello Thank you good luck to you<br>");
+    document.write("charAt(16) : ", t.charAt(16),"<br>");// 인덱스 16의 글자:g
+    document.write("indexOf('you') : ", t.indexOf('you'),"<br>");   // 첫번째 'you'의 인덱스값 : 12
+    document.write("indexOf('you',16) : ", t.indexOf('you',16),"<br>");   // 인덱스16 이후의 'you'의 인덱스값 : 29
+    document.write("lastIndexOf('you',25) : ", t.indexOf('you',16),"<br>");   // 역순검색 : 29
+    document.write("match('luck') : ", t.match('luck'),"<br>");   // 검색어가 있을경우 검색어를 반환
+    document.write("search('you') : ", t.search('you'),"<br>");   // 검색어의 인덱스값을 반환
+    document.write("substr(21,4) : ", t.substr(21,4),"<br>");   // 인덱스21 부터 4글자를 반환;
+    document.write("substring(6,12) : ", t.substring(6,11),"<br>");   // 6~10 까지의 글자를 반환;
+    document.write("replace('you'','me') : ", t.replace('you','me'),"<br>");   // 6~10 까지의 글자를 반환;
+    document.write("toLowerCase() : ", t.toLowerCase(),"<br>");   // 영문자 모두를 소문자로 반환
+    document.write("toUpperCase() : ", t.toUpperCase(),"<br>");   // 영문자 모두를 대문자로 반환
+    var s=t.split(" ");
+    document.write("배열화(split)",s,"<br>");
+    document.write("s[3] : ",s[3],"<br>");
+    document.write("아스키코드값(charCodeAt) : ", t.charCodeAt(1),"<br>");
+    document.write("아스키코드 역변환(fromCharCode) : ", String.fromCharCode(65),"<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

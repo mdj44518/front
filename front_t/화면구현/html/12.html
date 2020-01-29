@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>박스모델링(레이아웃)</title>
+<style>
+    
+    h1 {text-align: center;}
+    header,footer {border:1px solid red; width:800px; height:200px;margin:auto;box-sizing: border-box;}
+    #container {width:800px; height:400px;margin:auto;font-size:0;}
+    #container aside {width:200px; height:400px; display: inline-block;background-color: red;font-size:20px;}
+    #container section {width:600px; height:400px;display: inline-block;background-color: green;font-size:20px;}
+</style>
+</head>
+<body>
+<h1>박스모델링(레이아웃) : 인라인블록 사용</h1>
+<header>헤더내용(800x200)</header>
+<div id="container">
+    <aside>좌측 콘텐츠(200x400)</aside>
+    <section>메인 콘텐츠(600x400)</section>
+</div>
+<footer>푸터내용(800x200)</footer>  
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 기타 이벤트</title>
+<style>
+    * {margin:0;padding:0;list-style:none;}
+    body {height:5000px;}
+    h1 {margin:30px;text-align:center;}
+    nav {background-color:#000;overflow: hidden;}
+    nav.fix {position:fixed;top:0;z-index:1;width:100%;}
+    nav.fix+p+ul {padding-top:123px;}
+    nav ul {width:500px;margin:auto;transition:all .3s ease;}
+    nav ul li {width:100px;float:left;}
+    nav ul li a {display:block;width:100px;text-align:center;padding:50px 0;font-weight:bold;color:#ccc;text-decoration:none;font-size:16px;letter-spacing:-1px;transition:all .3s ease;}
+    nav.fix a {padding:15px 0;}
+    p {position:fixed;top:300px;}
+    #contents {width:500px;margin:auto;}
+    #contents li {border:5px solid gray;background-color:#eee;height:400px;margin:30px 0;transition:all .3s ease;}
+    #contents li.off {opacity:.1;transform:translateX(-100px);}
+</style>
+</head>
+<body>
+<h1>jQuery : 기타 이벤트</h1>
+<nav>
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">PRODUCT</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">COMMUNITY</a></li>
+        <li><a href="#">CONTACT</a></li>
+    </ul>
+</nav>
+<p>scrollTop : <span>0</span></p>
+<ul id="contents">
+    <li>콘텐츠 01</li>
+    <li class="off">콘텐츠 02</li>
+    <li class="off">콘텐츠 03</li>
+    <li class="off">콘텐츠 04</li>
+    <li class="off">콘텐츠 05</li>
+    <li class="off">콘텐츠 06</li>
+    <li class="off">콘텐츠 07</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    function scr() {
+        var scroll_T = $(window).scrollTop();
+        $("span").text(scroll_T);
+    }
+    
+    $(window).scroll(function(){
+        scr();
+        nav_move();
+        var scr_top = $(window).scrollTop();
+        if (scr_top > 180 && scr_top < 800) {
+            $("#contents li:eq(1)").removeClass("off");
+        } else {
+            $("#contents li:eq(1)").addClass("off");
+        }
+        if (scr_top > 500 && scr_top < 1300) {
+            $("#contents li:eq(2)").removeClass("off");
+        } else {
+            $("#contents li:eq(2)").addClass("off");
+        }
+        if (scr_top > 800 && scr_top < 1700) {
+            $("#contents li:eq(3)").removeClass("off");
+        } else {
+            $("#contents li:eq(3)").addClass("off");
+        }
+        if (scr_top > 1200 && scr_top < 2000) {
+            $("#contents li:eq(4)").removeClass("off");
+        } else {
+            $("#contents li:eq(4)").addClass("off");
+        }
+        if (scr_top > 1600 && scr_top < 2600) {
+            $("#contents li:eq(5)").removeClass("off");
+        } else {
+            $("#contents li:eq(5)").addClass("off");
+        }
+        if (scr_top > 2000 && scr_top < 3000) {
+            $("#contents li:eq(6)").removeClass("off");
+        } else {
+            $("#contents li:eq(6)").addClass("off");
+        }
+    });
+    
+    function nav_move() {
+        scr();
+        if ($(window).scrollTop() > 104) {
+            $("nav").addClass("fix");
+        } else {
+            $("nav").removeClass("fix");
+        }
+    }
+</script>
+</body>
+</html>

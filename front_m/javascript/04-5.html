@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>가위 바위 보 게임</title>
+<script>
+    /* 문제
+        랜덤 메서드를 활용하여 컴퓨터와 사용자의 가위바위보게임 만들기!
+    */
+    var user = prompt("가위=1 바위=2 보=3", "0"),
+        gmb = ["가위" , "바위", "보"];
+    while (user != 1 && user != 2 && user != 3) {
+        user = prompt("정확히 1,2,3 중에 입력해주세요(가위=1 바위=2 보=3)", "0");
+    }
+    var com = Math.ceil(Math.random() * 3),
+        imgWrite = "<img src='../img/" + com + ".jpg'>",
+        result = "";
+    
+    if (com == user) {
+        result = "<br> 당신도 "+ gmb[user - 1] +"를 내셨군요 비겼습니다."
+    } else if (com - user == -1 || com - user == 2) {
+        result = "<br> "+ gmb[user - 1] +"를 내셨군요 승리하셨습니다."
+    } else {
+        result = "<br> "+ gmb[user - 1] +"를 내셨군요 패배하셨습니다."
+    }
+    document.write(imgWrite + result);
+</script>
+</head>
+<body>
+</body>
+</html>

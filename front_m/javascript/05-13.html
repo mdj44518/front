@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM - 종합예제</title>
+<style>
+    table {width:400px;background-color:#ccc;}
+    td, th {background-color:white;padding:5px;text-align:center;}
+    th {background-color:#eee;}
+</style>
+</head>
+<body>
+<h1>자동차 견적 페이지</h1>
+<div id="carZone">
+    <p><img src="../img/car1.png" width="300"></p>
+    <table cellspacing="1">
+    <caption></caption>
+        <thead>
+        <tr>
+            <th>옵션</th>
+            <th>추가가격</th>
+            <th>선택</th>
+        </tr>
+        <tr>
+            <th>차량가격</th>
+            <td colspan="2"><input type="text" name="total" id="total" value="13450000" readonly></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>인조가죽시트</th>
+            <td>250000</td>
+            <td><input type="checkbox" name="opt" id="opt1" value="250000" onclick="car()"></td>
+        </tr>
+        <tr>
+            <th>네비게이션</th>
+            <td>300000</td>
+            <td><input type="checkbox" name="opt" id="opt2" value="300000" onclick="car()"></td>
+        </tr>
+        <tr>
+            <th>선루프</th>
+            <td>440000</td>
+            <td><input type="checkbox" name="opt" id="opt3" value="440000" onclick="car()"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>차량가격</th>
+            <td colspan="2">13450000</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+    var total = document.getElementById("total").value*1;
+//        (document.getElementById("total").value/10000).toLocaleString();
+//    document.getElementsByTagName("table")[0].lastElementChild.lastElementChild.lastElementChild.innerHTML = total + "만원";
+    function car() {
+        //불러질때마다. 체크여부에따라 더에서 차량가격 textContent 수정
+        var totalM = total;
+        var opt_num = document.getElementsByTagName("tbody")[0].childElementCount
+        for (var i = 1; i <= opt_num; i++) {
+            if (document.getElementById("opt"+i).checked) {
+                totalM += document.getElementById("opt"+i).value*1
+            }
+        }
+        totalM /= 10000;
+        totalM = totalM.toLocaleString() + "만원";
+        document.getElementsByTagName("table")[0].lastElementChild.lastElementChild.lastElementChild.innerHTML = totalM;
+    } //구리네..
+</script>
+</body>
+</html>

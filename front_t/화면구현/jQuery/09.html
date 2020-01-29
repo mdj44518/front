@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>흔한(?)소스</title>
+<style>
+    #popup { width:200px; height:300px; background:green; color:#fff;position:fixed;right:100px;top:100px;border:2px solid #000;display: none;}
+    ul,ul li {margin:0;padding:0;list-style:none;}
+    div[id^=slide] {width:460px;height:166px;overflow: hidden;}
+    ul:hover {cursor:pointer;}
+    #tab {height:200px;margin-bottom:20px;}
+    #tab li {background-color:gray;width:300px;height:200px;position:absolute;display: none;}
+    #tab li:first-child {display: block;}
+    img {display: block;}
+    #slide_x ul {width:2000px;}
+    #slide_x li {float:left;}
+    #slide_y {margin:20px 0;}
+    #slide_fade li {position:absolute;}
+    #slide_fade li:nth-child(1) {z-index:1000;}
+    #slide_fade li:nth-child(2) {z-index:900;}
+    #slide_fade li:nth-child(3) {z-index:800;}
+    #slide_fade li:nth-child(4) {z-index:700;}
+</style>
+</head>
+<body>
+<h1>자주 사용되는 스크립트</h1>
+<h2>레이어팝업</h2>
+<button id="pop_bt">레이어팝업 열기/닫기</button>
+<div id="popup">
+    <p>팝업창 내용</p>
+    <p><a href="#">닫기</a></p>
+</div>
+<h2>탭메뉴</h2>
+<p id="tab_menu"><button>이전</button> <a href="#">탭1</a> | <a href="#">탭2</a> | <a href="#">탭3</a> | <a href="#">탭4</a> | <a href="#">탭5</a> <button>다음</button></p>
+<ul id="tab">
+    <li>콘텐츠1</li>
+    <li>콘텐츠2</li>
+    <li>콘텐츠3</li>
+    <li>콘텐츠4</li>
+    <li>콘텐츠5</li>
+</ul>
+<h2>슬라이드 이미지</h2>
+<div id="slide_x">
+    <ul>
+        <li><img src="img/1.png"></li>
+        <li><img src="img/2.png"></li>
+        <li><img src="img/3.png"></li>
+    </ul>
+</div>
+<div id="slide_y">
+    <ul>
+        <li><img src="img/1.png"></li>
+        <li><img src="img/2.png"></li>
+        <li><img src="img/3.png"></li>
+    </ul>
+</div>
+<div id="slide_fade">
+    <ul>
+        <li><img src="img/1.png"></li>
+        <li><img src="img/2.png"></li>
+        <li><img src="img/3.png"></li>
+    </ul>
+</div>    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>    
+<script>
+    
+    // 페이지 입장시 팝업
+    $("#popup").slideDown();
+    // 클릭시 팝업닫기
+    $("#popup a").click(function(){
+        $("#popup").fadeOut();
+    });
+    // 토글버튼
+    $("#pop_bt").click(function(){
+        $("#popup").fadeToggle();
+    });
+    // 탭메뉴
+    var n=0;    
+    $("#tab_menu>a").click(function(){  // 메뉴기능
+        n=$("#tab_menu a").index(this);
+        //alert(n);
+        $("#tab li").hide();
+        $("#tab li").eq(n).show();
+    });
+    $("#tab_menu button").click(function(){ // 이전, 다음버튼
+        if($("#tab_menu button").index(this)==0) {
+           n--;
+           if(n<0) n=4; 
+        } else {
+            n++;
+            if(n>4) n=0;
+        }
+        $("#tab li").hide();
+        $("#tab li").eq(n).show();
+    });
+    
+    // 슬라이드(가로형)
+    // 한칸만큼 이미지가 왼쪽으로 --> setInterval()
+    /*
+    setInterval(function(){
+        //alert($("#slide_x ul").css("margin-left"));
+        if($("#slide_x ul").css("margin-left")=="-920px"){
+            $("#slide_x ul").animate({marginLeft:0},"fast");
+        } else {
+            $("#slide_x ul").animate({marginLeft:'-='+460},"fast");
+        }
+    },2000);
+    */
+    
+    // 첫번째 li를 마지막에 한번 더 복사
+    var first_li = $("#slide_x li:first").clone();
+    $("#slide_x ul").append(first_li);  // 1번장 이미지를 4번에 복사
+    first_li = $("#slide_y li:first").clone();
+    $("#slide_y ul").append(first_li); 
+    first_li = $("#slide_fade li:first").clone();
+    $("#slide_fade ul").append(first_li); 
+    
+    //무한 슬라이드(가로형)
+//    setInterval(function(){
+//        //alert($("#slide_x ul").css("margin-left"));
+//        if($("#slide_x ul").css("margin-left")=="-1380px"){
+//            $("#slide_x ul").css("margin-left",0);
+//        } 
+//        $("#slide_x ul").animate({marginLeft:'-='+460},"fast");
+//    },2000);
+    
+    //무한 슬라이드(가로형) + 마우스를 오버일때만 멈추게
+    var slideX;
+    function slidingX() {
+       slideX=setInterval(function(){
+        //alert($("#slide_x ul").css("margin-left"));
+            if($("#slide_x ul").css("margin-left")=="-1380px"){
+                $("#slide_x ul").css("margin-left",0);
+            } 
+            $("#slide_x ul").animate({marginLeft:'-='+460},"fast");
+        },2000); 
+    }
+    slidingX();
+    $("#slide_x").hover(function(){
+        clearInterval(slideX);
+    },slidingX);
+    
+    //무한 슬라이드(세로형) + 마우스를 오버일때만 멈추게
+    var slideY;
+    function slidingY() {
+       slideY=setInterval(function(){
+            if($("#slide_y ul").css("margin-top")=="-498px"){
+                $("#slide_y ul").css("margin-top",0);
+            } 
+            $("#slide_y ul").animate({marginTop:'-='+166},"fast");
+        },2000); 
+    }
+    slidingY();
+    $("#slide_y").hover(function(){
+        clearInterval(slideY);
+    },slidingY);
+    
+    // 오버랩되는 슬라이드(fade)
+    //$("#slide_fade li").eq(0).animate({opacity:0},"slow");
+    var i=0;
+    setInterval(function(){
+        if(i==3) {
+            $("#slide_fade li").show();
+            i=0;
+        }
+        $("#slide_fade li").eq(i++).fadeOut("slow"); 
+    },2000);
+    
+</script>
+</body>
+</html>

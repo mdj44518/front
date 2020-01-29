@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>반응형웹 </title>
+<style>
+    * {margin:0; padding:0; list-style:none;box-sizing:border-box;}
+    #wrap {width:1000px;margin:auto;border:5px solid red;padding:10px;}
+    h1 {text-align: center;margin:20px 0;}
+    h1 span:not(:first-child) {display:none;}
+    ul {overflow: hidden;}
+    li {float:left; width:calc((100% - 40px) / 4) ; min-height:180px; background: #f90; font-size:20px; margin: 5px;padding:20px;}
+    
+    li p {font:12px/18px 굴림,gulim,sans-serif;}
+    li p:first-child {font:bold 14px/18px 돋음,dotum,sans-serif;margin-bottom:10px;}
+    
+    @media (max-width:1024px) {   /* 테블릿 */
+        #wrap {width:100%;border:5px solid blue;}
+        h1 span {display:none;}
+        h1 span:nth-child(2) {display:inline;}
+        li {width:calc((100% - 30px) / 3) ; min-height:305px; }
+        li:nth-child(3n) {margin-right:0}
+        
+    }
+    
+    @media (max-width:480px) {   /* 모바일 */
+        #wrap {width:100%;border:5px solid green;}
+        #wrap h1 span {display:none;}
+        #wrap h1 span:nth-child(3) {display:inline;}
+        li {width:calc((100% - 30px) / 2) ; min-height:250px; }
+        li:nth-child(3n) {margin-right:5px}
+        li:nth-child(2n) {margin-right:0}
+    }
+</style>
+</head>
+<body>
+<div id="wrap">
+    <h1>반응형웹 (<span>웹</span><span>테블릿</span><span>모바일</span>)</h1>
+    <ul>
+        <li><p>반응형 웹이란?</p>
+            <p>반응형웹(Responsive web)이란 하나의 웹페이지(마크업)에서 PC, 모바일, 태블릿PC등 접속하는 디스플레이 크기에 따라 레이아웃이 유동적으로 변하도록 만든 웹페이지 접근 기법을 말함.</p>
+        </li>
+        <li><p>웹사이트 실제크기</p>
+            <p>디바이스의 픽셀 해상도와 실제크기는 같지 않음. 보통 initial-scale이 1이고 width=device-width일 때 제조사에서 정해준 실제크기</p>
+        </li>
+        <li><p>핵심은 미디어쿼리</p>
+            <p>@media "미디어종류" (조건) { CSS설정 }</p>
+        </li>
+        <li><p>디바이스별 크기</p>
+            <p>모바일 : 320 ~ 480 : 480px 이하</p>
+            <p>테블릿 : 533 ~ 1366 : 1024px 이하</p>
+            <p>PC : 1024이상 </p>
+        </li>
+        <li>
+            <p>디바이스의 방향설정</p>
+            <p>가로형 : orientation : landscape</p>
+            <p>세로형 : orientation : portrait (기본값)</p>
+        </li>
+        <li>
+            <p>상대크기 단위</p>
+            <p>풀화면 단위는 : 100%, 100vh, 100vw</p>
+            <p>[상대크기 글자단위]<br>
+                - em(px,pt) : 1em은 body가 가진 대문자 M의 폭값, 상속을 받음<br>
+                - rem(root em) : 상속을 받지 않고 body의 M의 폭값으로 적용 
+            </p>
+        </li>
+    </ul>
+</div>
+    
+</body>
+</html>

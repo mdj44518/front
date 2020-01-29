@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>키보드 접근성</title>
+</head>
+<body>
+<h1>키보드 접근성</h1>
+<h2>배경색 변경</h2>
+<button onclick="colorBg()">버튼1</button>
+<button>버튼2</button>
+<script>
+    var color = ["white", "yellow", "aqua", "purple"];
+    i = 0;
+    function colorBg(){
+        i++;
+        if (i >= color.length) i=0;
+        document.getElementsByTagName("body")[0].style.backgroundColor = color[i];
+    }
+    document.querySelector("button+button").onmouseover = colorBg;
+    document.querySelector("button+button").onfocus = colorBg;
+    //이벤트상에서의 this키워드 : 이벤트가 직접적으로 일어난 요소를 말함.
+    
+</script>
+</body>
+</html>

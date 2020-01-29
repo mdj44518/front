@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>텍스트와 배경</title>
+    <style>
+        #text li:first-child {color:red;}
+        #text li:nth-child(2) {letter-spacing: 10px}
+        #text li:nth-child(3) {line-height: 200%}
+        #text li:nth-child(4) {font-size: 200%}
+        #text li:nth-child(5) {font-family: 궁서체,serif;}
+        #text li:nth-child(6) {font-style:italic;}
+        #text li:nth-child(7) {font-weight:bold;}
+        #text li:nth-child(8) {font:bold italic 30px/60px 궁서체,serif;}
+        /* 대표속성 : 경우에 따라 순서가 중요. 속성값에 빈칸이 있는 경우 '로 묶음. */
+        #text li:nth-child(9) {text-align: justify;}
+        #bg li:nth-child(1) {background-color: aqua}
+        #bg li:nth-child(2) {background-image: url(img/lion-01.gif);height:200px;}
+        #bg li:nth-child(3) {background-image: url(img/lion-01.gif); height:200px; background-size:cover;}
+        #bg li:nth-child(4) {
+            background-image: url(img/lion-01.gif); 
+            height:200px; 
+            background-repeat: repeat;
+            background-size: 100px;
+        }
+        #bg li:nth-child(5) {
+            background-image: url(img/lion-01.gif); 
+            height:200px; 
+            background-repeat: no-repeat;
+            background-size: 100px;
+            background-position: 200px 80px;
+        }
+        #bg li:nth-child(6) {background: url(img/lion-01.gif); height: 200px;}
+    </style>
+</head>
+<body>
+<h1>글자와 배경</h1>
+<h2>글자관련 속성</h2>
+<ul id="text">
+    <li>color : 글자색</li>
+    <li>letter-spacing : 글자간격</li>
+    <li>line-height : 줄간격<br>두번째줄</li>
+    <li>font-size : 글자크기</li>
+    <li>font-family : 서체변경</li>
+    <li>font-style : 폰트스타일(이태릭)</li>
+    <li>font-weight : 글자두께</li>
+    <li>font : 폰트관련 <br>대표속성</li>
+    <li>text-align : 글자 위치</li>
+</ul>
+<h2>글자관련 속성</h2>
+<ul id="bg">
+    <li>background-color : 배경색</li>
+    <li>background-image : 배경 이미지</li>
+    <li>background-size : 배경 이미지 사이즈<br>
+        - contatin:가로/세로중 작은변을 100%로 맞춤<br>
+        - cover:가로/세로중 큰변을 100%로 맞춤
+    </li>
+    <li>background-reqeat : 배경이미지 반복설정</li>
+    <li>background-position : 배경 이미지 위치(가로정렬, 세로정렬 순으로 입력)</li>
+    <li>background : 배경관련 대표속성</li>
+    <li></li>
+</ul>
+</body>
+</html>

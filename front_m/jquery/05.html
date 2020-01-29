@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ball</title>
+<style>
+    * {margin:0;padding:0}
+    h1 {height:100px;text-align:center;}
+    html,body {height:100%;}
+    div#box {width:200px;margin:auto;border:5px solid gray;position:relative;height:calc(100% - 140px);box-sizing:border-box;}
+    p#ball {width:50px;height:50px;background-color:red;border-radius:25px;position:absolute;}
+</style>
+</head>
+<body>
+<h1>Ball</h1>
+<div id="box">
+    <p id="ball"></p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var speed = 100,
+        ball = $("#ball"),
+        box = $("#box"),
+        left = parseInt(ball.css("left")),
+        top2 = parseInt(ball.css("top")),
+        max_left = parseInt(box.css("width")) - parseInt(ball.css("width")) - 10,
+        max_top = box.height() - ball.height(),
+        x = true, y = true,
+        ran_x = Math.ceil(Math.random()*10);
+        var ran_y = Math.ceil(Math.random()*10);
+    
+    function move() {
+        // 좌우, 위아래 동시에
+        // 숙제 : 페이지 로딩시 멈추어있다가 박스안에서 클릭하면 공플레이 해보기.
+      if (x) {
+          left += ran_x;
+          if (left >= max_left) {left=max_left; x = false;}
+      } else {
+          left -= ran_x;
+          if (left <= 0) {left=0; x = true;}
+      }
+        
+      if (y) {
+          top2 += ran_y;
+          if (top2 >= max_top) {top2=max_top; y = false;}
+      } else {
+          top2 -= ran_y;
+          if (top2 <= 0) {top2=0; y = true;}
+      }
+      $("#ball").css({left:left,top:top2});
+    };
+    setInterval(move, speed);
+//    var start_ball,
+//        end_ball;
+//    function move() {
+//        //ball을 오른쪽으로 이동하는 기능
+//        clearInterval(start_ball);
+//        end_ball = setInterval(function(){
+//            if (max_left > left) {
+//                left += 10;
+//                if (max_left <= left) {
+//                    left = max_left;
+//                    move_back();
+//                }
+//            };
+//        ball.css("left",left);
+//        }, speed);
+//    };
+//    function move_back() {
+//        clearInterval(end_ball);
+//        start_ball = setInterval(function(){
+//            if (left > 0) {
+//                left -= 10;
+//                if (left <= 0) {
+//                    left = 0;
+//                    move();
+//                }
+//            };
+//            ball.css("left",left);
+//        }, speed);
+//    };
+    
+//    var xy = 0;
+//    var inter;
+//    function gogogo(){
+//        inter = setInterval(function(){
+//            if ($("#box").width() - $("#ball").width() > xy) {
+//                xy += 10;
+//                $("#ball").css("left", xy);
+//            } else {
+//                end_I();
+//                back();
+//            }
+//        },100);
+//    };
+//    function back(){
+//        inter = setInterval(function(){
+//            if (xy > 0) {
+//                xy -= 10;
+//                $("#ball").css("left", xy);
+//            } else {
+//                end_I();
+//                gogogo();
+//            }
+//        }, 100);
+//    };
+//    function end_I(){
+//        clearInterval(inter);
+//    };
+//    gogogo();
+</script>
+</body>
+</html>

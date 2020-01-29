@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>애니메이션</title>
+<style>
+    @keyframes ryanAni {
+        from {transform: rotate(0);}
+        to {transform: rotate(360deg);}
+    }
+    @keyframes heartAni {
+        0% {transform: scale(1)}
+        25% {transform: scale(.8)}
+        50% {transform: scale(1.2)}
+        75% {transform: scale(.9)}
+        100% {transform: scale(1)}
+    }
+    @keyframes carAni {
+        0% {left:50px;top:50px;}
+        24.9% {left:calc(100% - 300px);top:50px;transform: rotate(0);}
+        25% {left:calc(100% - 300px);top:50px;transform: rotate(90deg);}/* 단위가 다른 계산을 자동으로 입력 */
+        49.9% {left:calc(100% - 300px);top:calc(100% - 300px);transform: rotate(90deg);}
+        50% {left:calc(100% - 300px);top:calc(100% - 300px);transform: rotate(180deg);}
+        74.9% {left:50px;top:calc(100% - 300px);transform: rotate(180deg);}
+        75% {left:50px;top:calc(100% - 300px);transform: rotate(270deg);}
+        99.9% {left:50px;top:50px;transform: rotate(270deg);}
+        100% {left:50px;top:50px;}
+    }
+    
+    #ryan:hover {animation: ryanAni 1s linear 2;} /* 애니메이션이름, 시간, 가속도, 횟수 */
+    #heart {animation: heartAni .7s linear infinite;font-size:200px;color:red;display:inline-block;}
+    #car {animation: carAni 3s linear infinite;position: absolute;}
+</style>
+</head>
+<body>
+<h1>애니메이션(Animation)</h1>
+<div><img src="img/lion-01.gif" alt="라이언" id="ryan"></div>
+<div id="heart">♥</div>
+<div><img src="img/car.png" alt="car" id="car" width="300px;"></div>
+</body>
+</html>

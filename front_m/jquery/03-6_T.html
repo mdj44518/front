@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 페이지 디자인 설정</title>
+<style>
+    * {list-style:none;}
+    #wrap {border:1px solid gray;}
+    body {overflow-y: scroll;}
+    ul {padding-left:30px}
+    nav {width:30px;height:150px;position:fixed;top:100px;;right:0;background-color:rgba(50,200,20,.3);border-radius:20px 0 0 20px;transition:all .3s ease;white-space: nowrap;}
+    nav:hover {width:300px;z-index: 1;}
+    #color button {border:none;text-indent:-9999px; width: 20px;display: inline-block;}
+    #color button:nth-child(1) {background-color:red;}
+    #color button:nth-child(2) {background-color:orange;}
+    #color button:nth-child(3) {background-color:yellow;}
+    #color button:nth-child(4) {background-color:green;}
+    #color button:nth-child(5) {background-color:blue;}
+</style>
+</head>
+<body>
+<h1>페이지 디자인 꾸미기</h1>
+<div id="wrap">
+<header>
+<dl>
+    <dt>곡명:</dt> <dd>보약 같은 친구</dd>
+    <dt>아티스트:</dt> <dd>진시몬</dd>
+    <dt>작사자:</dt> <dd>진시몬 작사</dd>
+    <dt>작곡가:</dt> <dd>진시몬 작곡</dd>
+</dl>
+</header>
+<section>
+<p>
+    아침에 눈을 뜨면<br>
+    제일 먼저 생각나는<br>
+    자네는<br>
+    좋은 친구야<br>
+    피 한 방울 섞이지 않은<br>
+    우리 두 사람<br>
+    전생에<br>
+    인연일 거야<br>
+    자식보다 자네가 좋고v
+    돈보다 자네가 좋아<br>
+    자네와 난<br>
+    보약 같은 친구야<br>
+    아아아<br>
+    사는 날까지<br>
+    같이 가세<br>
+    보약 같은 친구야
+</p>
+<p>
+    사랑도 해 봤고<br>
+    이별도 해 봤지<br>
+    사는 거<br>
+    별거 없더라<br>
+    언제 갈지 모르는 인생<br>
+    우리 둘이서<br>
+    웃으며<br>
+    살아가 보자<br>
+    자식보다 자네가 좋고<br>
+    돈보다 자네가 좋아<br>
+    자네와 난<br>
+    보약 같은 친구야<br>
+    아아아<br>
+    사는 날까지<br>
+    같이 가세<br>
+    보약 같은 친구야<br>
+    자식보다 자네가 좋고<br>
+    돈보다 자네가 좋아<br>
+    자네와 난<br>
+    보약 같은 친구야<br>
+    아아아<br>
+    사는 날까지<br>
+    같이 가세<br>
+    보약 같은 친구야<br>
+    같이 가세<br>
+    보약 같은 친구야
+</p>
+</section>
+<nav>
+    <div href="#">
+    <ul>
+        <li>배경색 : <input type="text" name="bg" id="bg"></li>
+        <li id="font-weight">선두께 : 
+            <button class="line">+</button>
+            <button class="line">초기화</button>
+            <button class="line">-</button>
+        </li>
+        <li id="color">글자색 : 
+            <button class="color_bt">빨</button>
+            <button class="color_bt">주</button>
+            <button class="color_bt">노</button>
+            <button class="color_bt">초</button>
+            <button class="color_bt">파</button>
+        </li>
+        <li id="font-size">글자크기 : 
+            <button class="size">+</button>
+            <button class="size">초기화</button>
+            <button class="size">-</button>
+        </li>
+        <li>글자모양 : <select name="font-family" id="text_color">
+                <option value="gulim">굴림</option>
+                <option value="돋움">돋움</option>
+                <option value="고딕">맑은고딕</option>
+                <option value="궁서">궁서</option>
+                <option value="바탕">바탕</option>
+            </select></li>
+    </ul>
+    </div>
+</nav>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(".line").click(function(){
+        var index = $(this).index();
+        var line = parseInt($("#wrap").css("border-width"));
+        switch (index){
+            case 0: line++;
+                break;
+            case 1: line = 1;
+                break;
+            case 2: line--;
+                break;
+        }
+        $("#wrap").css("border-width", line);
+    });
+    
+//    $(".line:eq(0)").click(function(){ //선두께 +
+//       var line = parseInt($("#wrap").css("border-width"));
+//        $("#wrap").css("border-width", ++line);
+//    });
+//    $(".line:eq(1)").click(function(){ //초기화
+//       var line = parseInt($("#wrap").css("border-width"));
+//        $("#wrap").css("border-width", 1);
+//    });
+//    $(".line:eq(2)").click(function(){ //선두께 -
+//       var line = parseInt($("#wrap").css("border-width"));
+//        $("#wrap").css("border-width", --line);
+//    });
+    
+    
+    $(".size:eq(0)").click(function(){ //글자크기 +
+        var size = parseInt($("p").css("font-size"));
+        $("p").css("font-size", ++size);
+    });
+    $(".size:eq(1)").click(function(){ //글자크기 초기화
+        var size = parseInt($("p").css("font-size"));
+        $("p").css("font-size", 16);
+    });
+    $(".size:eq(2)").click(function(){ //글자크기 -
+        var size = parseInt($("p").css("font-size"));
+        $("p").css("font-size", --size);
+    });
+    
+//    $("nav").mouseover(function(){
+//        $("nav").css("width", 300);
+//    });
+//    $("body").click(function(){
+//        $("nav").css("width", 30);
+//    });
+    
+    $(".color_bt").click(function(){
+       var color = $(this).css("background-color");
+        $("p").css("color", color);
+    });
+    
+    $("#text_color").change(function(){
+        var font = $(this).val();
+        $("section p").css("font-family", font);
+    });
+    
+    $("#bg").keydown(function(event){
+        var e = event ? event : window.event;
+       if (e.keyCode == 13) {
+           var bg = $(this).val();
+           $("section").css("background-color", bg);
+       }
+    });
+</script>
+</body>
+</html>

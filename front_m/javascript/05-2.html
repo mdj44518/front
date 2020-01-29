@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>시간반복 관련</title>
+<script>
+    // setInterval("실행문", 시간) // 시간 : 1/1000초
+    var i = 0;
+    var time = setInterval("console.log(i++ + '초')", 1000);
+    document.write("<button onclick=\"clearInterval(time); console.log('스탑')\">정지</button>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

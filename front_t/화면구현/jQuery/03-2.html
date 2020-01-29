@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 마우스 이벤트</title>
+<style>
+    #stage * {margin:0;padding:0;}
+    #stage {width:700px;height:500px;border:3px solid #999;margin:20px auto;position: relative;}
+    p {position:absolute;left:0;top:0;}
+    p.ani {animation: shake .2s linear;}
+    img {display:block;}
+    
+    @keyframes shake {
+        0% {margin-left: 0;}
+        25% {margin-left: -10px;}
+        50% {margin-left: 5px;}
+        75% {margin-left: -2px;}
+        100% {margin-left: 0;}
+    }
+
+</style>
+</head>
+<body>
+<h1>jQuery : 키보드 이벤트</h1>
+<input type="text" name="key" id="key">
+<input type="text" name="code" id="code">
+
+<div id="stage">
+    <p id="mario"><img src="img/mario.gif" width="60" height="80"></p>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    // keydown()
+    $("#key").keydown(function(e){
+        $(this).val("");
+        $("#code").val(e.keyCode);
+        if(e.keyCode == 16) {   // shift
+            $(this).val("[shift]");
+            return false; 
+        }
+        if(e.keyCode == 17) {   // ctrl
+            $(this).val("[ctrl]");
+            return false; 
+        }
+        if(e.keyCode == 18) {   // alt
+            $(this).val("[alt]");
+            return false; 
+        }
+        if(e.keyCode == 13) {   // enter
+            $(this).val("[enter]");
+            return false; 
+        }
+    });
+    var x=0, y=0, 
+        max_l=$("#stage").width()-$("#mario").width(),
+        max_t=$("#stage").height()-$("#mario").height();
+    $(document).keydown(function(e){
+        if(e.keyCode == 39) {       // 오른쪽키
+            if(x<max_l){
+                x += 10;
+                $("#mario").css("left",x);
+            }else{shake();}
+            $("#mario").css("transform","rotateY(0)");
+        }
+        if(e.keyCode == 37) {       // 왼쪽키
+            if(x>0){
+                x -= 10;
+                $("#mario").css("left",x)
+            }else{shake();}
+            $("#mario").css("transform","rotateY(180deg)");
+            
+        }
+        if(e.keyCode == 38 && y>0) {       // 위쪽키
+            y -= 10;
+            $("#mario").css("top",y);
+        }
+        if(e.keyCode == 40 && y<max_t) {       // 아랫쪽키
+            y += 10;
+            $("#mario").css("top",y);
+        }
+    });
+    // shake 함수정의
+    function shake() {
+        $("#mario").addClass("ani");
+        setTimeout(function(){
+            $("#mario").stop().removeClass("ani");
+        },250);
+    }
+</script>
+</body>
+</html>

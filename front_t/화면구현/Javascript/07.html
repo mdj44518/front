@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트</title>
+</head>
+<body>
+<h1>이벤트</h1>
+<h2>이벤트</h2>
+<ul>
+    <li>이벤트란 브라우저에서 방문자가 취하는 모든 동작을 몰함.</li>
+    <li>마우스 이벤트<br>
+        - onmouseover : 마우스 오버시<br>
+        - onmouseout : 마우스가 벗어났을 때<br>
+        - onmousemove : 마우스가 움직일 때<br>
+        - onclick : 클릭시<br>
+        - ondbclick : 더블클릭시
+    </li>
+    <li>키보드 이벤트<br>
+        - onkeypress : 지정한 키를 눌렀을 때(기능키, 방향키 제외)<br>
+        - onkeydown : 지정한 키를 눌렀을 때(모든키 사용,대소문자 구분x)<br>
+        - onkeyup : 키를 (눌렀다) 떼었을 때
+    </li>
+    <li>기타 이벤트<br>
+        - onfocus : 포커스를 얻었을 때<br>
+        - onblur : 포커스를 잃었을 때<br>
+        - onchange : value 속성값이 바뀌고 포커스가 이동될 때<br>
+        - onload : 지정한 요소의 하위요소를 모두 로딩했을 때<br>
+        - onunload : 문서를 닫거나 다른 문서로 이동했을 때<br>
+        - onsubmit : 폼요소에서 전송을 눌렀을 때;<br>
+        - onreset : 폼요소에서 취소 버튼을 눌렀을 때<br>
+        - onresize : 크기가 변경되었을 때<br>
+        - onerror : 문제가 발생되었을 때
+    </li>
+    <li>이벤트 기본 사용법<br>
+        - 마크업에서 인라인 방식 : onclick="alert('경고');"<br>
+        - DOM을 이용한 이벤트 등록 : 선택자.onclick = function() {실행문;}
+    </li>
+    <li>키보드 접근성<br>
+        - 모든 이벤트는 키보드로 사용할 수 있도록 작성.<br>
+        - <a href="07-1.html">예제</a>
+    </li>
+    <li>이벤트 중복 등록 해결<br>
+        - 같은 요소(대상)에 같은 이벤트를 걸 경우 한개만 실행되는 문제<br>
+        - <a href="07-2.html">예제</a>
+    
+    </li>
+</ul>
+<h2>이벤트 객체</h2>
+<ul>
+    <li>이벤트는 이벤트 핸들러에 의해 이벤트 객체를 생성하여 실행문이 실행된다.</li>
+    <li>예제 : <a href="07-3.html">이벤트 객체 생성</a></li>
+    <li>마우스이벤트 객체 속성<br>
+        - clientX : 마우스 이벤트 발생한 X좌표값<br>
+        - clientY : Y좌표값<br>
+        - pageX : docuemnt(body)의 X좌표값 <br>
+        - pageY : docuemnt(body)의 Y좌표값 <br>
+        - screenX : 화면 모니터 X좌표값<br>
+        - screenY : 화면 모니터 Y좌표값<br>
+        - layerX : position을 적용한 요소의 X좌표값<br>
+        - layerY : position을 적용한 요소의 Y좌표값<br>
+        - button : 마우스에 눌린 버튼의 값
+    </li>    
+    <li>키보드이벤트 객체 속성<br>
+        - keyCode : 눌린 키의 유니코드 값<br>
+        - altKey : alt키가 사용되었으면 true, 아니면 false;<br>
+        - ctrlKey : ctrl키가 사용되었으면 true, 아니면 false;<br>
+        - shiftKey : shift키가 사용되었으면 true, 아니면 false;
+    </li>
+    <li>전체 이벤트 객체 속성<br>
+        - target : this와 같이 이벤트가 발생한 요소를 반환.
+    </li>
+    <li>예제 : <a href="07-4.html">이벤트 객체로 정보 얻기</a></li>
+</ul>
+
+</body>
+</html>

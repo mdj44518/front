@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>즐겨 사용하는 포털 주소안내</title>
+    <style>
+        span {color: red;}
+    </style>
+<script>
+    window.onload;
+    /* 문제
+        1부터 100까지(한줄에 한개) 출력하기
+    */
+    
+    var num = 1;
+    while (num <= 100){
+        if (num % 7 == 0) {
+            document.write("<span>" +num+++ "</span>" + "<br>");
+        } else {
+             document.write(num++ + "<br>");
+        }
+    }
+</script>
+<style>
+/*    div span:nth-child(n+2):nth-child(-n+4) {color: blue;}*/
+/*    span:nth-child(n) {color:green;}*/
+    div span:nth-child(n+4):nth-child(-n+6) {
+            background: green;
+        }
+</style>
+</head>
+<body>
+    <div>
+    <span>1a</span>
+    <span>2a</span>
+    <span>3a</span>
+    <span>4a</span>
+    <span>5a</span>
+    <span>6a</span>
+    <span>7a</span>
+    </div>
+</body>
+</html>

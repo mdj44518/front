@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>탐색선택자</title>
+</head>
+<body>
+<h1>속성 탐색선택자</h1>
+<ul>
+    <li>내용1</li>
+    <li id="txt2">내용2</li>
+    <li class="blue_bg">내용3</li>
+    <li>내용4</li>
+    <li>내용5</li>
+    <li class="bg_red">내용6 <span>나는 스팬</span></li>
+    <li><input type=text>
+        <input type=password>
+    </li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    // 속성값 탐색
+    $("li[class=red]").css("background-color","gray"); 
+    
+    // 속성값 시작어 지정
+    $("li[class^=bg]").css("background-color","red");
+    // 속성값 검색어 지정
+    $("li[class*=bg]").css("background-color","red");
+    
+    // 속성값이 text인 input
+    $("input:text").css("border","1px solid red")
+    
+    // end()
+    $("ul li").last().prev().css("border","2px solid blue")
+    .end().css("border","2px solid green")
+        
+</script>
+</body>
+</html>

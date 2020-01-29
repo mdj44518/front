@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>즐겨 사용하는 포털 주소안내</title>
+<script>
+    /* 
+       문제) 테이블(7행 5열) 출력하기 
+    */
+    var t = "<table style='border-collapse:collapse;' border=1 cellpadding=10> \n\t<caption>for문 응용</caption> \n";
+    for (var i = 1; i <= 7; i++) {
+        t += "\t<tr> \n";
+        for (var j = 1; j <= 5; j ++) {
+             t += "\t\t<td>"+ i + "-" + j +"</td> \n";
+        }
+        t += "\t</tr>\n";
+    }
+    document.write(t += "</table>\n");
+    console.log(t);
+</script>
+</head>
+<body>
+</body>
+</html>

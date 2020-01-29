@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>네이버 로그인</title>
+<link href="css/30.css" rel="stylesheet" type="text/css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrap">
+<h1><a href="https://www.naver.com/">네이버 로그인</a></h1>
+<h2 class="screen-out">언어설정</h2>
+<select name="lang" id="lang">
+    <option value="1">한국어</option>
+    <option value="2">ENGLISH</option>
+    <option value="3">中文</option>
+</select>
+<h2 class="screen-out">로그인</h2>
+<form action="#" method="post">
+    <fieldset>
+        <legend class="screen-out">회원로그인</legend>
+        <p>
+            <label for="id" class="screen-out">아이디</label>
+            <input type="text" id="id" name="id" placeholder="아이디" required>
+        </p>
+        <p>
+            <label for="pw" class="screen-out">비밀번호</label>
+            <input type="password" id="pw" name="pw" placeholder="비밀번호" required>
+        </p>
+        <input type="submit" value="로그인">
+        <input type="reset" value="취소" class="screen-out">
+        <p>
+            <label><input type="checkbox" name="auto" value="" id="auto"><i class="fa fa-check-circle" aria-hidden="true"></i>로그인 상태 유지</label>
+        </p>
+        <p>
+            <a href="https://nid.naver.com/login/ext/help_ip3.html" target="_blank">IP보안</a> <span class="screen-out">|</span>
+            <input type="checkbox" name="security" id="security"> 보안기능 사용 |
+            <a href="https://nid.naver.com/nidlogin.login?mode=number">일회용로그인 바로가기</a> <span class="screen-out">|</span>
+            도움말 : 아이디 로그인은 아이디와 암호를 입력하는 일반적인 로그인 방식을 뜻합니다. PC나 모바일 등 어떤 환경에서도 사용할 수 있습니다.
+        </p>
+    </fieldset>
+</form>
+<hr>
+<section>
+    <h2>회원가입 및 아이디/비번 찾기</h2>
+    <a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#">회원가입</a>
+</section>
+<section>
+    <img src="img/pc_banner_tax.png" alt="네이버고지서 : 지방세! 터치 한 번으로 확인하고 납부하세요.">
+    <!-- 인라인요소를 덩그러니 두기 안좋으니 section 같은 블록레벨로감싸줌 -->
+</section>
+    
+<footer>
+    <nav>
+        <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+            <li><a href="#">책임의 한계와 법적고지 회원정보</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+    </nav>
+    <p>
+        <a href="#" title="홈으로">naver</a>Copyright © <a href="#" title="법인페이지">NAVER Corp.</a> All Rights Reserved.
+    </p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transfrom 변형속성</title>
+<style>
+    * ul {margin:0;padding:0;list-style:none;border:1px solid red; position:relative; overflow: hidden;}
+    li {
+        box-sizing: border-box;
+        border:1px solid #000; 
+        background-color:darkgray;
+        width:100px;
+        height:100px;
+        margin:10px;
+        transition: all .5s ease;
+    }
+    li:nth-child(1):hover {width: 200px; height:200px;}
+    li:nth-child(2):hover {transform: scale(-1,1);}
+    li:nth-child(3):hover {transform: skew(0deg, -0deg);} /* x, y축 */
+    li:nth-child(4):hover {transform: rotate(420deg);}
+    li:nth-child(5):hover {transform: translate(0px,100px);}
+/*    li:nth-child(6) {position:absolute; top: 50%; left: 50%; margin-left: -50px; margin-top: -50px;}*/
+    li:nth-child(6) {position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+</style>
+</head>
+<body>
+<h1>Transform 변형 속성</h1>
+<ul>
+    <li>크기변경</li>
+    <li>SCALE</li>
+    <li>SKEW</li>
+    <li>ROTATE</li>
+    <li>TRANSLATE</li>
+    <li>중앙정렬</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 포커스 이벤트</title>
+<style>
+    input {outline: none;}
+    input:focus {border:1px solid red;}
+    p {background-color:#eee;}
+    a {display: block;padding:20px;background-color:#eee;}
+</style>
+</head>
+<body>
+<h1>jQuery : 포커스 이벤트</h1>
+<a href="#"><input type="text" id="id" name="id" autocomplete="off"></a>
+<a href="#"><input type="password" id="pw" name="pw"></a>
+<button>확인</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //$("#id").focus();
+//    $("input").focus(function(){
+//        $(this).css("background-color","#eee");
+//    });
+    $("input").blur(function(){
+        $(this).css("background-color","#FFF");
+    });
+    $("input").focusin(function(){
+        $("a").css("border","1px solid red");
+    });
+    //참고) https://ibrahimovic.tistory.com/13
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>each() 메서드</title>
+</head>
+<body>
+<h1>jQuery : each()</h1>
+<ul id="memo">
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $("#memo li").each(function(i,k){
+         $(k).text("리스트"+ i);
+    });
+    $("li:eq(2)").click(function(){console.log($(this).target)})
+</script>
+</body>
+</html>

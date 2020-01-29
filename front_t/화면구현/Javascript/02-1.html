@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>지출비용 계산하기</title>
+<script>
+    var price1 = Number(prompt("교통비?","2000")); // 교통비
+    var price2 = prompt("식비?","5000")*1; // 식비
+    var price3 = prompt("음료비?","2000")*1; // 음료비
+    var total = price1 + price2 + price3;
+    alert(price1);
+    var result;
+    total<=10000 ? result=10000-total+"원 절약 하셨네요." :result="아껴 쓰세요";
+    // 문제) 화면에 10,000원 초과시 '아껴 쓰세요'라고 나오고
+    // 10000원 이하면 'xxx원 절약 하셨네요.'
+    document.write(result);
+</script>
+</head>
+<body>
+
+
+    
+</body>
+</html>

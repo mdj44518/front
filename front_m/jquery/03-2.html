@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 키보드 이벤트</title>
+<style>
+    #stage * {margin:0;padding:0;}
+    #stage {width:700px;height:400px;border:3px solid #999;margin:20px auto;position: relative;}
+    #stage img {position:absolute;}
+    img.ani_lr {animation: shake_lr .2s linear;}
+    img.ani_tb {animation: shake_tb .2s linear;}
+    
+    @keyframes shake_lr {
+        0% {margin-left: 0;}
+        25% {margin-left: -10px;}
+        50% {margin-left: 5px;}
+        75% {margin-left: -2px;}
+        100% {margin-left: 0;}
+    }
+    @keyframes shake_tb {
+        0% {margin-top: 0;}
+        25% {margin-top: -10px;}
+        50% {margin-top: 5px;}
+        75% {margin-top: -2px;}
+        100% {margin-top: 0;}
+    }
+</style>
+</head>
+<body>
+<h1>jQuery : 키보드 이벤트</h1>
+<input type="text" name="key" id="key">
+<input type="text" name="code" id="code">
+    
+<div id="stage">
+    <p id="mario"><img src="../img/mario.gif" width="60" height="80" id="m"></p>
+    <p><img src="../img/mario2.gif" width="60" height="80" id="w"></p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var e;
+    $(document).keydown(kd);
+    var g=0,s=0,wg=0,ws=0,
+        max_l = $("#stage").width() - $("#m").width(),
+        max_t = $("#stage").height() - $("#m").height(),
+        right_view = true;
+    function kd(event) {
+        e = event ? event : window.event;
+        if (e.keyCode == 39) {// 오른쪽
+            if (g < max_l) {
+                if (right_view) {
+                    $("#stage #m").css("left", g += 10);
+                } else {
+                    $("#stage #m").css("transform", "rotateY(0)");
+                    right_view = true;
+                }
+            } else {
+                if (right_view) shake("ani_lr");
+                else {
+                    $("#stage #m").css("transform", "rotateY(0)");
+                    right_view = true;
+                }
+            }
+        }
+        else if (e.keyCode == 37) {// 왼쪽
+            if (g > 0) {
+                if (!right_view){
+                    $("#stage #m").css("left", g -= 10);
+                } else {
+                    $("#stage #m").css("transform", "rotateY(180deg)");
+                    right_view = false;
+                }
+            } else {
+                if (!right_view) shake("ani_lr");
+                else {
+                    $("#stage #m").css("transform", "rotateY(180deg)");
+                    right_view = false;
+                }
+            }
+        }
+        else if (e.keyCode == 38) {// 위
+            if (s > 0) {
+                $("#stage #m").css("top", s -= 10);
+            } else {
+                shake("ani_tb");
+            }
+        }
+        else if (e.keyCode == 40) {// 아래
+            if (s < max_t) {
+                $("#stage #m").css("top", s += 10);
+            } else {
+                shake("ani_tb");
+            }
+        }
+        
+        
+        
+        
+        
+        
+//        if (e.keyCode == 68) {// d
+//            $("#stage #w").css("left", wg += 10);
+//            $("#stage #w").css("transform", "scale(1,1)");
+//        }
+//        if (e.keyCode == 65) {// a
+//            $("#stage #w").css("left", wg -= 10);
+//            $("#stage #w").css("transform", "scale(-1,1)");
+//        }
+//        if (e.keyCode == 87) {// w
+//            $("#stage #w").css("top", ws -= 10);
+//        }
+//        if (e.keyCode == 83) {// s
+//            $("#stage #w").css("top", ws += 10);
+//        }
+        return false;
+    };
+    
+    function shake(str) {
+        $("#m").addClass(str);
+        setTimeout(function(){$("#m").removeClass(str)}, 500);
+    }
+    
+//    function kd(event) {
+//        e = event ? event : window.event;
+//        $("#code").val(e.keyCode);
+//        if (e.keyCode == 39){
+//            var x = parseInt($('img').css('margin-left'));
+//            x = isNaN(x) ? 0 : x;
+//            if (x < $('#stage').width() - $("#stage img").width()) {
+//                $("#mario img").css("margin-left", x + 10);
+//            }
+//        }
+//        if (e.keyCode == 37){
+//            var x = parseInt($('img').css('margin-left'));
+//            x = isNaN(x) ? 0 : x;
+//            if (x != 0 && x != "0px") {
+//                $("#mario img").css("margin-left", x - 10);
+//            }
+//            
+//        }
+//        if (e.keyCode == 38){
+//            var x = parseInt($('img').css('margin-top'));
+//            x = isNaN(x) ? 0 : x;
+//            if (x != 0 && x != "0px") {
+//                $("#mario img").css("margin-top", x - 10);
+//            }
+//        }
+//        if (e.keyCode == 40){
+//            var x = parseInt($('img').css('margin-top'));
+//            x = isNaN(x) ? 0 : x;
+//            if (x < $('#stage').height() - $("#stage img").height()) {
+//                $("#mario img").css("margin-top", x + 10);
+//            }
+//        }
+//        $("#key").val(e.key);
+//        return false;
+//    };
+</script>
+</body>
+</html>

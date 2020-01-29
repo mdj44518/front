@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>그림자 및 그라디언트(그라데이션)</title>
+<style>
+    li {font-size: 30px;}
+    #shadow span {text-shadow: 2px 2px 1px #000, 4px 4px 1px orange, 6px 6px 1px red;} /* x축 y축 번짐(생략가능) 색상 */
+    #shadow div {box-shadow: 19px 20px 21px -1px rgba(130,43,130,1);}
+    #gra li {width: 300px; height: 200px; border:1px solid gray;}
+    #gra li:nth-child(1) { /* 각도(초기값=180), 색상들(+ %)... */
+        background:linear-gradient(90deg, red 30%, green 30%, green 70%, yellow 70%);
+    }
+    #gra li:nth-child(2) { /* dnjsdml dnlclsms at x y로 표현 */
+        background:radial-gradient(circle at left top, red 30%, green, yellow 70%);
+    }
+    #gra li:nth-child(3) {
+        background: linear-gradient(to bottom, rgba(184,225,252,1) 0%,rgba(169,210,243,0.52) 10%,rgba(151,192,232,0) 21%,rgba(144,186,228,0.36) 25%,rgba(144,187,232,1) 32%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(184,225,252,1) 62%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+</style>
+</head>
+<body>
+<h1>그림자 및 그라디언트(그라데이션)</h1>
+<h2>Shadow(그림자)</h2>
+<ul id="shadow">
+    <li>글자 그림자 효과 : <span>text-shadow</span></li>
+    <li>요소에 그림자효과 : <div>box-shadow</div></li>
+    <li>Shadow Generator : https://www.cssmatic.com/box-shadow</li>
+</ul>
+<h2>그라디언트(그라데이션, 바림?)</h2>
+<ul id="gra">
+    <li>선형 그라디언트</li>
+    <li>원형 그라디언트</li>
+    <li>Gradient Generator : https://www.colorzilla.com/gradient-editor/</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dom - style</title>
+</head>
+<body>
+<h1>선호하는 음식</h1>
+<h2>한식</h2>
+<ul>
+    <li>김치</li>
+    <li id="fire">불고기</li>
+    <li>비빔밥</li>
+</ul>
+<h2>양식</h2>    
+<ul>
+    <li>돈까스</li>
+    <li>피자</li>
+    <li>파스타</li>
+</ul>
+<script>
+    document.getElementsByTagName("h1")[0].style.color = 'green';
+    document.getElementsByTagName('h2')[0].style.color = 'red';
+    var under = document.getElementsByTagName("li")[0].style;
+    under.color = 'blue';
+    under.textDecoration = 'underline';
+    document.getElementById("fire").style.backgroundColor = 'red';// '-'가 있는 속성명은 낙타표기법으로 바꿔사용.
+</script>
+</body>
+</html>

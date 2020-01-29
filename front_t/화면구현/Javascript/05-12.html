@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM - 폼요소 선택자</title>
+</head>
+<body>
+<h1>DOM - 폼요소 선택자</h1>
+<form action="#" method="get" name="f1">
+    <fieldset>
+        <legend>폼요소1</legend>
+        <p>
+            <label for="pw1">비밀번호</label>
+            <input type="password" name="pw1" id="pw1">
+        </p>
+        <p>
+            <label for="pw2">비밀번호 확인</label>
+            <input type="password" name="pw2" id="pw2">
+            <input type="submit" value="확인" id="bt1">
+        </p>
+    </fieldset>
+</form>
+<form action="#" method="get" name="f2">
+    <fieldset>
+        <legend>폼요소2</legend>
+        <p id="terms">
+            회사는 법령이 정하는 바에 따라 "회원"의 개인정보를 보호하기 위해 노력합니다. 개인정보의 보호 및 사용에 대해서는....
+        </p>
+        <p>
+            <input type="checkbox" name="accept" id="accept" checked>
+            <label for="pw2">약관에 동의합니다.</label>
+        </p>
+        <p>
+            <input type="checkbox" id="allchk">
+            <label for="pw2">전체선택</label><br>
+            <input type="checkbox" name="hobby" id="hobby1">
+            <label for="hobby1">취미1</label><br>
+            <input type="checkbox" name="hobby" id="hobby2">
+            <label for="hobby2">취미2</label><br>
+            <input type="checkbox" name="hobby" id="hobby3">
+            <label for="hobby3">취미3</label>
+        </p>
+        <p>
+            <input type="submit" value="등록완료" id="bt2" disabled>
+            <input type="reset" value="취소">
+        </p>
+    </fieldset>
+</form>
+<script>
+    // 비밀번호 확인기능
+    document.getElementById("bt1").onclick = function() {
+        var pw1 = document.f1.pw1.value,
+            pw2 = document.f1.pw2.value;
+        if(pw1==pw2) {alert("맞습니다.")}
+        else {
+            alert("패쓰워드를 바르게 입력해 주세요!")
+            // 기존 패쓰워드를 초기화
+            document.f1.pw1.value="";
+            document.f1.pw2.value="";
+            // pw1 항목에 포커스를 이동해주기 focus()
+            document.f1.pw1.focus();
+        }
+        return false;   // 링크나 submit 기능을 막기위해.
+    }
+    
+    // 약관동의시 버튼 활성화
+    document.getElementById("accept").onclick = function() {
+        if(document.f2.accept.checked) {
+            document.getElementById("bt2").disabled=false;
+        }else {
+            document.getElementById("bt2").disabled=true;
+        }
+    }
+    
+    // 전체선택 체크박스 기능
+    document.f2.allchk.onclick = function() {
+        if(document.f2.allchk.checked) {
+            document.f2.hobby1.checked=true;
+            document.f2.hobby2.checked=true;
+            document.f2.hobby3.checked=true;
+        }else {
+            document.f2.hobby1.checked=false;
+            document.f2.hobby2.checked=false;
+            document.f2.hobby3.checked=false;
+        }
+    }
+    // 체크박스 항목에 따른 전체선택 설정.
+    for(var i=0;i<3;i++) {
+        document.f2.hobby[i].onclick = function() {//hobby : name값임
+            if(document.f2.hobby1.checked && document.f2.hobby2.checked && document.f2.hobby3.checked) {
+                document.f2.allchk.checked=true;
+            }else {
+                document.f2.allchk.checked=false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

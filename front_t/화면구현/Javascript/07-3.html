@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트 객체 생성</title>
+</head>
+<body>
+<div id="wrap">
+<h1>이벤트 객체</h1>
+<h2>마우스 이벤트 객체 속성</h2>
+    <form action="#" method="get" name="f1">
+        <fieldset>
+            <legend></legend>
+            <p>
+                <label>clientX : </label>
+                <input type="text" name="client_x">
+            </p>
+        </fieldset>
+        
+    </form> 
+</div>
+<script>
+    function fnc1() { alert("실행문1")}
+    var bt = document.getElementById("bt");
+    bt.onclick = function(e) {
+        alert(e.clientX);
+    }
+    // 크로스브라우징을 위해 보완
+    bt.onclick = function(e) {
+        var event=e?e:window.event;
+        event.clientX;
+    }
+</script>
+</body>
+</html>

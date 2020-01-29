@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>지출비용 계산하기</title>
+<script>
+    var height = Number(prompt("키는?","174")), // 교통비
+        weight = prompt("몸무게는?","67")*1, // 식비
+        avge = Math.round((height-100) * 0.9),// Math.round() : 반올림 정수화
+        result; 
+
+    if(weight == avge) {result="당신은 표준 몸무게 입니다."}
+    else if(weight > avge) {result="표준 몸무게 보다 "+ (weight-avge) +
+"kg 초과입니다."}
+    else {result="표준 몸무게 보다 "+ (avge-weight) +
+"kg 부족합니다."}
+    
+    /* 문제) 표준몸무게 = (키 - 100) * 0.9
+    사용자에게 키, 몸무게를 입력받아
+    당신은 표준몸무게입니다. (표준몸무게와 같을때)
+    표준몸무게 보다 00kg 초과입니다. (과체중일 때)
+    표준몸무게 보다 00kg 부족합니다. (저체중일 때) */
+    document.write(result);
+</script>
+</head>
+<body>
+</body>
+</html>

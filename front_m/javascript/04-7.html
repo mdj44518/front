@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>문자객체 관련 메서드</title>
+<script>
+    document.write("<h1>문자객체</h1>");
+    var t = "Hello Thank you good luck to you";
+    document.write(t + "<br>");
+    document.write("t.charAt(16) : ", t.charAt(16), "<br>");// 인덱스 16의 글자 : g
+    document.write("t.indexOf('you') : ", t.indexOf('you'), "<br>");// 'you' 글자 시작인덱스
+    document.write("t.indexOf('you', 16) : ", t.indexOf('you', 16), "<br>");// 'you' 글자 시작인덱스 16인덱스부터 찾
+    document.write("t.lastIndexOf('you') : ", t.lastIndexOf('you'), "<br>");// 끝에서부터 찾.
+    document.write("t.match('luck') : ", t.match('luck'), "<br>"); // 검색해서 있으면 그 글자 출력 없으면 null
+//    document.write(t.search('you')); 잘안씀. 없으면 리턴 -1;
+    document.write("t.substr(6,12) : ", t.substr(6,12), "<br>");  // 몇 인덱스 부터 (몇개)
+    document.write("t.substring(6,12) : ", t.substring(6,12), "<br>"); // 몇 인덱스 부터 (몇'인덱스'직전까지)
+    document.write("t.replace('you', 'me') : ", t.replace('you', 'me'), "<br>");
+    document.write("toUpperCase : ",t.toUpperCase(), "<br>");
+    document.write("toLowerCase : ",t.toLowerCase(), "<br>");
+//    split
+    document.write("아스키코드값 t.charCodeAt(1) : ", t.charCodeAt(0), "<br>");
+//    String.fromCharCode(65) == 'A'
+</script>
+</head>
+<body>
+</body>
+</html>

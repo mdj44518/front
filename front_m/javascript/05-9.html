@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dom - style</title>
+</head>
+<body>
+<h1>선호하는 음식</h1>
+<h2>한식</h2>
+<ul>
+    <li>김치</li>
+    <li id="fire">불고기<span>돼지고기</span></li>
+    <li>비빔밥</li>
+</ul>
+<h2>양식</h2>    
+<ul>
+    <li>돈까스<span>(소스많이)</span></li>
+    <li>피자</li>
+    <li>파스타</li>
+</ul>
+<script>
+    document.getElementById("fire").firstElementChild.style.color = "red"; //자식 첫번째
+    document.getElementsByTagName("li")[3].children[0].style.color = "blue"; //자식 첫번째
+    document.getElementsByTagName("li")[3].nextElementSibling.style.color = "yellow"; // 다음 요소
+
+</script>
+</body>
+</html>

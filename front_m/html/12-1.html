@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>박스모델링(레이아웃)</title>
+<style>
+    h1 {text-align: center;}
+    header, footer {border: 1px solid red; width:800px; height: 200px; margin: auto;box-sizing: border-box;}
+    #container {width:800px; height: 400px; margin: auto; box-sizing: border-box;}
+    #container aside, #container section { min-height: 400px; float: left;}
+    #container aside {
+        width: 200px;
+        background-color: red;
+         box-sizing: border-box;
+    }
+    #container section {
+        width: 600px;
+        background-color: green;
+         box-sizing: border-box;
+    }
+</style>
+</head>
+<body>
+<h1>박스모델링(레이아웃) float 사용</h1>
+<header>헤더내용(800x200)</header>
+<div id="container">
+    <aside>좌측 콘텐츠(200x400)</aside><section>메인 콘텐츠(600x400)</section>
+</div>
+<footer>푸터내용(800x200)
+</footer>    
+</body>
+</html>

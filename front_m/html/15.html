@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+</body>
+</html><!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>박스모델링</title>
+<style>
+    /* reset */
+    * {color:gray; margin: 0; box-sizing: border-box;}
+    
+    /* commoon */
+    header, aside, section, footer {border: 1px solid gray; background-color:cornsilk; text-align: center; border-radius: 10px;}
+    #wrap {width: 800px; margin: auto;}
+    h1 {text-align: center; padding: 20px 0 23px;}
+    
+    #container {overflow: hidden; border: 1px solid gray;padding: 19px 0 12px 19px;}
+    #container>p {float: left; height: 100px; width: 100px;background-color: red;margin: 0 10px 10px 0;
+    font: bold 30px/100px tahoma, sans-serif; color: #fff; text-align: center; border-radius: 50px;}
+    #container>p.clear {clear: left;}
+    #container>p.right {float: right; background-color: green;}
+    
+</style>
+</head>
+<body>
+<div id="wrap">
+    <h1>박스모델링 : float(left, right, clear)</h1>
+    <div id="container">
+        <p>1</p>
+        <p class="right">2</p>
+        <p class="clear">3</p>
+        <p>4</p>
+        <p>5</p>
+        <p class="right tt">6</p>
+        <p>7</p>
+        <p>8</p>
+        <p class="right">9</p>
+        <p>10</p>
+        <p>11</p>
+        <p>12</p>
+        <p>13</p>
+        <p class="clear">14</p>
+        <p>15</p>
+        <p>16</p>
+        <p class="right">17</p>
+    </div>
+</div>
+</body>
+</html>

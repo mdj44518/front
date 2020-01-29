@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>함수의 기본사용법</title>
+
+</head>
+<body>
+<h1>함수 사용법</h1>
+<div></div>
+<p>
+    <button>인삿말</button>
+    <button>지우기</button>
+    <button>배경색 바꾸기</button>
+</p> 
+<script>
+    // div안에 'Hello' 10줄 넣기
+    var txt = "",
+        divTag = document.querySelector('div'),
+        color = ["white","yellow","aqua","purple"],
+        bg = 1;
+        
+    function hi() {
+        for(var i=1;i<=10;i++){
+            txt += i+" Hellow<br>";
+        }
+        divTag.innerHTML = txt;
+    }
+    document.querySelector('button').onclick = hi;//함수호출이 아닌 함수명만 지정
+    document.querySelector('button:nth-child(2)').onclick = function() {
+        divTag.innerHTML = ""
+        txt="";
+    }
+    
+    document.querySelector('button:nth-child(3)').onclick = function() {
+        if(bg>3) bg=0;
+        document.querySelector('body').style.backgroundColor = color[bg++]; // color[0]
+    }
+    
+</script>
+</body>
+</html>

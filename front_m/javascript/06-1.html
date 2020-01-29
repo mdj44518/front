@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>함수의 기본사용법</title>
+</head>
+<body>
+<h1>함수 사용법</h1>
+<div></div>
+<p>
+    <button>인삿말</button>
+    <button>지우기</button>
+    <button>배경색 바꾸기</button>
+</p>
+    <script>
+        var divTag = document.getElementsByTagName("div")[0],
+            buttons = document.getElementsByTagName("button"),
+            color = ["white", "yellow", "aqua", "purple"],
+            n = 0;
+        function fun()  {
+        //div 안에 'Hello' 10줄 넣기
+            for (var i = 1; i <= 10; i++) {
+                divTag.innerHTML += i + ".Hello<br>";
+            }
+        }
+        buttons[0].onclick = fun;
+        buttons[1].onclick = function(){divTag.innerHTML = "";}
+        buttons[2].onclick = function(){
+            document.querySelector('body').style.backgroundColor = 
+//                color[Math.floor(Math.random()*color.length)]
+            color[n];
+            n = (n+1) % color.length;
+            console.log(n);
+        }
+    </script>
+</body>
+</html>

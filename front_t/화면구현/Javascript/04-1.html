@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>월드컵 날짜 정보 출력하기</title>
+<script>
+    var t = new Date(),t2=new Date("2002/5/31"), // 현재 년월시 객체 생성
+        nowYear = t.getFullYear(),  //getFullYear 년도
+        nowMonth = t.getMonth(),    //getMonth() 월
+        nowDate = t.getDate(),        //getDate() 일
+        nowDay = t.getDay(),          //getDay() 요일
+        t2Day = t2.getDay();
+    switch(nowDay) {
+        case 0 : nowDay = "일"; break;
+        case 1 : nowDay = "월"; break;
+        case 2 : nowDay = "화"; break;
+        case 3 : nowDay = "수"; break;
+        case 4 : nowDay = "목"; break;
+        case 5 : nowDay = "금"; break;
+        case 6 : nowDay = "토";
+    }
+    switch(t2Day) {
+        case 0 : t2Day = "일"; break;
+        case 1 : t2Day = "월"; break;
+        case 2 : t2Day = "화"; break;
+        case 3 : t2Day = "수"; break;
+        case 4 : t2Day = "목"; break;
+        case 5 : t2Day = "금"; break;
+        case 6 : t2Day = "토";
+    }
+    document.write("오늘은 "+nowYear+"년 "+(nowMonth+1)+"월 "+nowDate+"일 "+nowDay+"요일입니다.<br>");
+    //문제. 기념일의 요일 출력하기
+    document.write("2002년 월드컵은 5월 31일 "+t2Day+"요일입니다.");
+    
+</script>
+</head>
+<body>
+<h1></h1>
+<h2></h2>
+    
+</body>
+</html>

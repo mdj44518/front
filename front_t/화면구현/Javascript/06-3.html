@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>사진 갤러리</title>
+<style>
+    #gallery {width:320px; margin:auto; padding:15px ;border:1px solid #ccc;}
+    h1 {text-align: center;}
+    #photo_list {overflow: hidden;}
+    #inner_list {margin:0;padding:0;list-style:none;height:74px;width:850px;margin-left:0;transition:all .2s ease;}
+    #inner_list li {float:left;margin:10px 17px;}
+    #btn_wrap {font-size:20px;}
+    #btn_wrap a {color:gray;text-decoration:none;font-weight: bold;}
+    #btn_wrap a:hover {color:red;}
+    #btn_wrap a:last-child {display: block;float:right;}
+</style>
+
+</head>
+<body>
+<div id="gallery">
+<h1>사진갤러리</h1>
+<p id="photo"><img src="img/p1.jpg" width="320" height="240"></p>
+<div id="photo_list">
+    <ul id="inner_list">
+        <li><a href="img/p1.jpg"><img src="img/p1.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p2.jpg"><img src="img/p2.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p3.jpg"><img src="img/p3.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p4.jpg"><img src="img/p4.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p5.jpg"><img src="img/p5.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p6.jpg"><img src="img/p6.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p7.jpg"><img src="img/p7.jpg" width="72" height="54"></a></li>
+        <li><a href="img/p8.jpg"><img src="img/p8.jpg" width="72" height="54"></a></li>
+    </ul>
+</div>
+<p id="btn_wrap">
+    <a href="#" id="befor_btn">이전</a>
+    <a href="#" id="next_btn">다음</a>
+</p>
+</div>
+
+
+<script>
+    // 요소경로 세팅
+    var list_zone = document.getElementById("inner_list"),
+        list_a = document.getElementsByTagName("a"),
+        list = document.getElementById("inner_list").childElementCount;
+
+    // 작은이미지 클릭시 큰이미지로 보이기
+    for (var i=0;i<list;i++) {
+        list_a[i].onclick = function() {
+            var ph = document.getElementById("photo").children[0];
+            ph.src=this.href;
+            return false;
+        }
+    }
+    
+    // 다음버튼
+    var n_bt = document.getElementById("next_btn"),
+        num = 0;
+    n_bt.onclick = function() {
+        if(num<list-3) {
+            num++;
+            list_zone.style.marginLeft = -106*num+"px"; 
+        }
+        return false;
+    }
+    
+    // 이전버튼
+    var n_bt = document.getElementById("befor_btn"),
+        num = 0;
+    n_bt.onclick = function() {
+        if(num>0) {
+            num--;
+            list_zone.style.marginLeft = -106*num+"px"; 
+        }
+        return false;
+    }
+    
+    
+</script>
+</body>
+</html>

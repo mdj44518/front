@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>폼(form)관련</title>
+</head>
+<body>
+<h1>폼관련 요소</h1>
+<h2>폼기본(쿼리스트링)</h2>
+<form action="https://search.naver.com/search.naver" method="get">
+    <fieldset>
+        <legend>네이버 통합검색</legend>
+        <span>통합검색 : </span><input type="text" name="query" placeholder="검색어" required>
+        <input type="submit" value="검색하기">
+    </fieldset>
+</form>
+<h2>쿼리스트링 응용 : 다음검색엔진의 영화검색</h2>
+<form action="https://search.daum.net/search" method="get">
+    <fieldset>
+        <legend>다음 통합검색</legend>
+        <span>영화검색 : </span><input type="text" name="q" placeholder="영화제목" required>
+        <input type="hidden" name="w" value="tot">
+        <input type="submit" value="검색하기">
+    </fieldset>
+</form>
+<h2>폼문 실무응용 : 로그인</h2>
+<form action="#" method="post">
+    <fieldset>
+        <legend>회원로그인</legend>
+        <label for="id">아이디</label> <input type="text" name="id" placeholder="ID" required id="id">
+        <label for="pw">비밀번호</label> <input type="password" name="pw" placeholder="Password" required id="pw">
+        <input type="submit" value="로그인">
+        <input type="reset" value="취소">
+    </fieldset>
+</form>
+<h2>폼문 실무응용 : 회원가입</h2>
+<form action="#" method="post">
+    <fieldset>
+        <legend>회원가입 : 정보입력</legend>
+        <p>
+            <label for="id">아이디</label> <input type="text" name="id" placeholder="ID" required id="id">
+        </p>
+        <p>
+            <label for="pw">비밀번호</label> <input type="password" name="pw" placeholder="Password" id="pw"></p>
+        <p>
+            <label>성별</label> <input type="radio" name="gender" required id="gender0" value="0"><label for="gender0">남성</label> <input type="radio" name="gender" id="gender1" value="1"><label for="gender1">여성</label> 
+        </p>
+        <p>
+            <label>관심분야</label> <input type="checkbox" name="hobby" required id="hobby0" value="0"><label for="hobby0">독서</label> <input checked type="checkbox" name="hobby" id="hobby1" value="1"><label for="hobby1">영화감상</label> <input type="checkbox" name="hobby"   id="hobby2" value="2"><label for="hobby2">공부</label> 
+        </p>
+        <p>
+            <span>가입경로</span> 
+            <select name="join_root">
+                <option value="1">배너광고</option>
+                <option value="2" selected>검색엔진</option>
+                <option value="3">지인추천</option>
+                <option value="4">직접입력</option>
+            </select>
+        </p>
+        <input type="submit" value="가입신청">
+        <input type="reset" value="취소">
+    </fieldset>
+</form>
+</body>
+</html>

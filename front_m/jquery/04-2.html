@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>효과 메서드</title>
+<style>
+    * {margin: 0;padding: 0;list-style: none;}
+    html,body {height:5000px;}
+    li {float:left;height:203px;width: 120px;overflow: hidden;}
+    span {display:block;text-align:center;cursor:pointer;}
+    a {height:183px;width: 120px; display: block;text-align: center;}
+</style>
+</head>
+<body>
+<h1>jQuery : 효과 메서드</h1>
+<ul>
+    <li><a href="#"><img src="../img/poster1.jpg"></a><span>영화1</span></li>
+    <li><a href="#"><img src="../img/poster2.jpg"></a><span>영화2</span></li>
+    <li><a href="#"><img src="../img/poster3.jpg"></a><span>영화3</span></li>
+    <li><a href="#"><img src="../img/poster4.jpg"></a><span>영화4</span></li>
+    <li><a href="#"><img src="../img/poster5.jpg" width="120"></a><span>영화5</span></li>
+</ul>
+<button>스크롤 부드럽게 이동</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $("h1").animate({
+        margin:"100px 0 0 50px"        
+    },1000,li1);
+    
+    
+    $("li:eq(0)").css("height",.1);
+    
+    function li1() {
+        $("li:eq(0)").animate({
+            height:"205px"
+        },1000,function(){});
+    }
+    
+    $("button").click(function(){ // 속성값을 이용할때 window, document 객체를 선택자로...
+                                  // animate = css 모션이므로 html,body를 선택자로..
+       $("html,body").animate({
+           scrollTop:3000
+       },500);
+    });
+</script>
+</body>
+</html>

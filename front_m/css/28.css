@@ -1,0 +1,17 @@
+/* reset */
+* {margin: 0; padding: 0; text-decoration: none; list-style: none; box-sizing: border-box;}
+
+/* common */
+
+/* main */
+h1, h2 {margin: 20px;}
+
+#full {display: block; overflow: hidden; margin-bottom: 150px;}
+#full>li {float: left; overflow: hidden;}
+#full li:hover>a{background:#000;}
+#full>li a {color:#fff; padding: 10px 20px; display: block; background-color:#30a6e6;}
+#full li {color:#fff; display: block; background-color:#30a6e6;}
+#full a:hover {display: block; background-color:#000;}
+#full li:hover ul {display: block; background-color:#000; opacity: 1; height: 200px;} /* hover */
+#full li:hover {background-color:#000;}
+#full ul {height: 0; overflow: hidden; opacity: 0; position:relative; transition:all 2s ease;} /* 서브메뉴 ul */

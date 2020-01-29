@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 마우스 이벤트</title>
+<style>
+    div {border:1px solid red;padding:30px;width:600px;}
+    p { border:1px dashed gray;padding:30px;margin:0;background-color:gray;}
+</style>
+</head>
+<body>
+<h1>jQuery : 마우스 이벤트</h1>
+<button id="btn1">click</button>
+<button id="btn2">double click</button>
+<a href="http://naver.com" id="btn3">click</a>
+<button id="btn4">mouseover / mouseout</button>
+<button id="btn5">hover</button> 
+<div>
+    <p id="txt">버튼을 눌러보세요!</p>
+    <p id="txt2"></p>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $("#btn1").click(function(){
+        $("#txt").text("클릭완료!");
+    });
+    $("#btn2").dblclick(function(){
+        $("#txt").text("더블클릭완료!");
+    });
+    $("#btn3").click(function(e){
+        $("#txt").text("a요소 클릭완료!");
+        //return false;
+        e.preventDefault(); // a링크(이벤트)의 기본기능 차단
+    });
+    // 마크업에 있는 스크립트(링크)는 onclick="fnc1(); return false;" 마크업상에 return false 사용
+    $("#btn4").mouseover(function(){
+        $("#txt").text("마우스가 오버됨!");
+    });
+    $("#btn4").mouseout(function(){
+        $("#txt").text("마우스가 아웃됨!");
+    });
+    $("#btn5").hover(function(){
+        $("#txt").text("마우스가 오버됨!");
+    },function(){
+        $("#txt").text("마우스가 아웃됨!");
+    });
+    // mouseover / mouseout
+    /*
+    $("div").mouseover(function(){
+        $(this).css("background-color","yellow");
+    });
+    $("div").mouseout(function(){
+        $(this).css("background-color","#fff");
+    });
+    */
+    // mouseenter / mouseleave (자식으로 갔을때 발생 x)
+//    $("div").mouseenter(function(){
+//        $("#txt").css("background-color","red");
+//    });
+    $("div").mouseleave(function(){
+        $("#txt").css("background-color","#fff");
+    });
+    
+    // mousemove / pageX, pageY
+    // x좌표 : xxx / y좌표 : xxx
+    $(document).mousemove(function(e){
+        $("#txt2").text("x좌표 : "+e.pageX+" / y좌표 : "+e.pageY);
+    });
+</script>
+</body>
+</html>

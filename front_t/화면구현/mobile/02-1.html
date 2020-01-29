@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>모바일과 구분하여 접속하기</title>
+<script>
+    var filter = "win16|win32|win64|mac";
+    var user = navigator.platform.toLowerCase();
+//    alert(user);
+    if(0 > filter.indexOf(user)) {
+        alert("모바일"+user+"로 접속 하였습니다.");
+        location.href="http://naver.com";
+    } else {
+        alert("pc("+user+") 접속 하였습니다.");
+    }
+</script>
+</head>
+<body>
+<h1></h1>
+<h2></h2>
+<ul>
+    <li></li>
+</ul>
+    
+<h2></h2>
+<ul>
+    <li></li>
+</ul>
+</body>
+</html>

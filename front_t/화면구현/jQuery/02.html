@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>객체조작</title>
+</head>
+<body>
+<h1>객체 조작</h1>
+<h2>속성조작</h2>
+<ul>
+    <li>html() : $("선택자").html("<p>안녕</p>");</li>
+    <li>text() : $("선택자").html("<p>안녕</p>");</li>
+    <li>css() : $("선택자").css("color","red");</li>
+    <li>removeAttr() : $("선택자").removeAttr("title");</li>
+    <li>attr() : $("선택자").attr("title","안녕");</li>
+    <li>addClass() : $("선택자").addClass("red");</li>
+    <li>removeClass() : $("선택자").removeClass("red");</li>
+    <li>toggleClass() : $("선택자").removeClass("red");</li>
+    <li>hasClass() : $("선택자").hasClass("red") : 클래스값이 있으면 true, 없으면 false값 반환</li>
+    <li>prop : $("선택자").prop("속성명","값") : 클래스값이 있으면 true, 없으면 false값 반환<br>
+        - 속성명 : tagName / nodeType / selectIndex
+    </li>
+    <li>val() : $("선택자").val("값")</li>
+    <li><a href="02-1.html">예제</a></li>
+</ul>
+<h2>수치조작</h2>
+<ul>
+    <li>height(): $("선택자").height("100");</li>
+    <li>width(): $("선택자").width("100");</li>
+    <li>innerHeight() : $("선택자").innerHeight("100"); // border 안쪽(padding 포함)까지의 크기</li>
+    <li>innerWidth() : $("선택자").innerWidth("100");</li>
+    <li>outerHeight() : $("선택자").outerHeight("100");// border를 포함한 크기</li>
+    <li>outerWidth() : $("선택자").outerWidth("100");</li>
+    <li>position() : $("선택자").position().left;<br>
+        $("선택자").position().top;<br>
+        선택요소의 상대좌표값을 반환
+    </li>
+    <li>offset() : $("선택요소").offset().left / top // 절대좌표값</li>
+    <li>scrollLeft() : $(window).scrollLeft() // 브라우저의 수평 스크롤 위치 값을 반환</li>
+    <li>scrollTop() : $(window).scrollTop() // 브라우저의 수평 스크롤 위치 값을 반환</li>
+    <li><a href="02-2.html">예제</a></li>
+</ul>
+<h2>객체편집</h2>
+<ul>
+    <li>before() : $("선택자").before("새요소") : 선택자 이전위치에 추가</li>
+    <li>after() : $("선택자").after("새요소") : 선택자 다음위치에 추가</li>
+    <li>append() : $("선택자").append("새요소") : 선택자 자식으로 새요소를 마지막위치에 추가</li>
+    <li>appendTo() : $("새요소").appendTo("선택자") : 선택자 자식으로 새요소를 마지막위치에 추가</li>
+    <li>prepend() : $("선택자").prepend("새요소") : 선택자 자식으로 새요소를 처음 위치에 추가</li>
+    <li>prependTo() : $("새요소").prependTo("선택자") : 선택자 자식으로 새요소를 처음 위치에 추가</li>
+    <li>insertBefore() : $("새요소").insertBefore("선택자") : 선택자 이전 위치에 추가</li>
+    <li>insertAfter() : $("새요소").insertAfter("선택자") : 선택자 다음 위치에 추가</li>
+    <li>clone() : $("선택자").clone() : 콘텐츠를 포함한 소스자체를 복사, 사용시에는 변수에 받아 사용.</li>
+    <li>empty() : $("선택자").empty() : 선택자의 하위요소를 모두 삭제</li>
+    <li>remove() : $("선택자").remove() : 선택자를 삭제</li>
+    <li>replaceAll() : $("선택자").replaceAll("새요소") : 선택자를 새요소로 교체</li>
+    <li>replaceWith() : $("새요소").replaceWith("선택자") : 선택자를 새요소로 교체</li>
+    <li>wrap() : $("선택자").wrap("새요소") : 선택자를 새요소로 감쌈</li>
+    <li>unwrap() : $("선택자").wrap() : 선택자의 부모요소를 삭제</li>
+    <li>wrapAll() / wrapInner()</li>
+    <li><a href="02-3.html">예제</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>올해 남은 일수는?</title>
+<script>
+    //문제) 올해 남은 일 수 출력하기
+    var t = new Date(), // 현재 년월시 객체 생성
+        nowYear = t.getFullYear(),  //getFullYear 년도
+        //올해마지막일자 - 오늘일자 = 남은일수
+        lastDay = new Date(nowYear+"/12/31"),
+        dDay = lastDay - t; // 날짜정보는 1/1000초 단위로 계산됨.
+    //alert(lastDay);
+    //alert(dDay);
+    dDay = dDay/(1000 * 60 * 60 * 24); // 일수로 계산
+    dDay = Math.ceil(dDay); // 소수점을 올림처리(정수화)
+    document.write("올해 "+nowYear+"년도는 "+dDay+"일 남았습니다.<br>");
+    
+    //문제) 기념일 dday 계산하기
+    var userDay = prompt("생년/월/일?","2000/3/17"),dDay2;
+    userDay = new Date(userDay);
+    //alert(userDay);
+    dDay2 = Math.ceil((t-userDay)/(1000 * 60 * 60 * 24));
+    document.write("당신은 태어난지 "+dDay2+"일 되었습니다.");
+</script>
+</head>
+<body>
+<h1></h1>
+<h2></h2>
+    
+</body>
+</html>

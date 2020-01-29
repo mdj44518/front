@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>객체</title>
+</head>
+<body>
+<h1>객체(Object)</h1>
+<h2>객체의 기본사용법</h2>
+<ul>
+    <li>객체는 기능(Method)과 속성(Property)</li>
+    <li>객체.메서드()</li>
+    <li>객체.속성</li>
+    <li>객체.속성=값</li>
+</ul>
+<h2>내장객체</h2>
+<ul>
+    <li>자바스크립트 엔진에 내장된 객체</li>
+    <li>문자(String), 날짜(Date), 배열(Array), 수학(Math), 정규표현식(RegExp Object)</li>
+    <li>내장객체 생성하기<br>
+        변수 = new 함수명();<br>
+        예) var tv = new Object();<br>
+        tv.width = "30cm";      // 속성(정보)<br>
+        tv.height = "25cm";<br>
+        tv.off = function() { alert("TV Off");} // 기능<br>
+        alert(tv.width);<br>
+        tv.off();
+    </li>
+</ul>
+<h3>날짜정보 객체</h3>
+<ul>
+    <li>변수 = new Date();    // 현재 년월시로 객체 생성</li>
+    <li>변수 = new Date("년/월/일") // new Date("2002/5/31");</li>
+    <li>변수 = new Date("년,월-1,일") // new Date("2002,4,31");</li>
+    <li>예제 : <a href="04-1.html">월드컵 날짜 정보 출력하기</a></li>
+    <li>예제 : <a href="04-2.html">올해 남은 일수 출력하기</a></li>
+</ul>
+<h3>숫자(Number) 객체</h3>
+<ul>
+    <li>변수 = new Number(값);</li>
+    <li>변수 = (숫자)값;</li>
+    <li>예제 : <a href="04-3.html">숫자관련 메서드</a></li>
+</ul>
+<h3>수학(Math) 객체</h3>
+<ul>
+    <li>수학적 계산관련 메서드</li>
+    <li>예제 : <a href="04-4.html">메서드별 예제</a></li>
+    <li>예제 : <a href="04-5.html">가위바위보 게임</a></li>
+</ul>
+<h3>배열(Array) 객체</h3>
+<ul>
+    <li>var d = new Array(); // 배열객체 생성</li>
+    <li>var d = new Array(30,"홍길동",true); // 선언/값지정</li>
+    <li>var d = [30,"홍길동",true]; // 선언/값지정(setter)</li>
+    <li>d[0]; // 30(getter)</li>
+    <li>예제 : <a href="04-6.html">배열 예제</a></li>
+</ul>
+<h3>문자(String) 객체</h3>
+<ul>
+    <li>var t = new String(); // 문자객체 생성</li>
+    <li>var t = "text"; // 선언/값지정</li>
+    <li>예제 : <a href="04-7.html">문자객체 관련 메서드</a></li>
+    <li>예제 : <a href="04-8.html">이름과 전화번호 받아 출력</a></li>
+</ul>
+<h3>정규표현(RegExp) 객체</h3>
+<ul>
+    <li>var email = new RegExp(패턴,검색옵션);</li>
+    <li>var email = /패턴/검색옵션</li>
+    <li>예제 : <a href="04-9.html">이메일 유효성검사</a></li>
+</ul>
+</body>
+</html>

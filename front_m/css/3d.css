@@ -1,0 +1,23 @@
+/* reset */
+* {margin: 0;padding:0;box-sizing: border-box;list-style:none;text-decoration:none;border: none;}
+
+
+/* main */
+#gnb {width: 300px; margin-left: 20px;box-sizing:content-box;}
+/*#gnb ul {border: 3px solid red}*/
+#gnb a {display: block; padding:5px 0; text-align: center;background-color: pink; height:}
+#gnb li {float:left; width:100px; border:1px solid red; position:relative;}
+#gnb ul {display: none;} /* 2단과 3단이 다 가려짐.  */ 
+#gnb>li:hover>ul {display: block;}/* 2단메뉴 등장 */
+#gnb>li:hover>ul>li:last-child {border-bottom:none;}
+#gnb>li:hover>ul>li:hover>ul {display: block; position:absolute; left: 100px; top:0px;}/* 3단메뉴 등장 */
+
+
+
+
+
+
+/* a 태그 색상 유지 */
+#gnb a:hover ,
+#gnb>li:hover>a ,
+#gnb>li:hover>ul>li:hover>a {background-color:aqua;}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>가상클래스 : 링크스타일</title>
+<style>
+    a:link {color: red;}/* 아직 가보지 않은 링크 */
+    a:visited {color: gray;}/* 가본곳 */
+    a:hover {color: blue;}/* 마우스 올리면. */
+    a:active {color: yellow;}/* 누른상태 = 잘안씀 */
+    #new a {text-decoration: none;}
+    #new a:link {color: gray;}
+    #new a:visited {color: yellow;}
+    #new a:hover {color: #000;text-decoration: underline;}
+    #new a:hover::after {
+        content: "바로가기";
+        text-decoration: none;
+        background-color: red;
+        color: white;
+        font-size: 11px;
+        border-radius: 20px;
+        position: absolute;
+        padding:0 3px 1px 5px;
+        margin-left: 10px;
+        margin-top: 3px;
+    }
+</style>
+</head>
+<body>
+<h1>가상클래스 : 링크스타일</h1>
+<h2>기본 링크스타일 지정</h2>
+<ul>
+    <li><a href="https://www.naver.com/">네이버</a></li>
+    <li><a href="https://www.daum.net/">다음</a></li>
+    <li><a href="https://www.nate.com/">네이트</a></li>
+    <li><a href="https://www.google.co.kr/">구글</a></li>
+</ul>
+<h2>특정 콘텐츠 링크스타일 + 가상요소</h2>
+<ul id="new">
+    <li><a href="https://www.naver.com/">네이버</a></li>
+    <li><a href="https://www.daum.net/">다음</a></li>
+    <li><a href="https://www.nate.com/">네이트</a></li>
+    <li><a href="https://www.google.co.kr/">구글</a></li>
+</ul>
+</body>
+</html>

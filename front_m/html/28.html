@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2단 메뉴</title>
+<link href="css/28.css" rel="stylesheet" type="text/css">
+    <style>
+        #side ul {display: none; position:absolute;}
+        #side li {width: 100px;}
+        #side a {padding: 10px 0; display: block; width: 100px; background-color: aquamarine; text-align:  center;}
+        #side a:hover {background-color: #000;}
+        #side>li:hover>a {background-color: #000;}
+        #side li>a:hover+ul {display: block;}
+        #side li{position: relative;}
+        #side ul{position: absolute; left: 100px; top:0;}
+        
+    </style>
+</head>
+<body>
+<h1>2단(Depth)메뉴</h1>
+<h2>풀다운 메뉴</h2>
+<ul id="full">
+    <li><a href="#">Home</a></li>
+    <li>
+        <a href="#">About</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">HTML5</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">CSS3</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+</ul>
+<h2>세로 메뉴</h2>
+<ul id="side">
+    <li><a href="#">Home</a></li>
+    <li>
+        <a href="#">About</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">HTML5</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">CSS3</a>
+        <ul>
+            <li><a href="#">SubMenu1</a></li>
+            <li><a href="#">SubMenu2</a></li>
+            <li><a href="#">SubMenu3</a></li>
+            <li><a href="#">SubMenu4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>효과 메서드</title>
+<style>
+    * {margin:0;padding:0;list-style:none;}
+    li {float:left;width:120px;margin:10px;}
+    a{display:block;height:183px;width:120px;text-align:center;}
+    span {display:block;text-align: center;cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>jQuery : 효과 메서드</h1>
+<ul id="movie">
+    <li><a href="#"><img src="img/poster1.jpg"></a>
+        <span>스파이더맨</span>
+    </li>
+    <li><a href="#"><img src="img/poster2.jpg"></a>
+        <span>알라딘</span>
+    </li>
+    <li><a href="#"><img src="img/poster3.jpg"></a>
+        <span>기방도령</span>
+    </li>
+    <li><a href="#"><img src="img/poster4.jpg"></a>
+        <span>진범</span>
+    </li>
+    <li><a href="#"><img src="img/poster5.jpg" width="120" height="183"></a>
+        <span>토이스토리</span>
+    </li>
+
+</ul>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    // hide(), show(), toggle()
+    $("img:eq(0)").click(function(){
+        $(this).hide();
+        return false;
+    });
+    $("span:eq(0)").click(function(){
+        $("img:eq(0)").show();
+    });
+    $("span:eq(1)").click(function(){
+        $("img:eq(1)").toggle();
+    });
+    
+    // fadeIn, fadeOut, fadeToggle
+    $("img:eq(2)").click(function(){
+        $(this).fadeOut();
+        return false;
+    });
+    $("span:eq(2)").click(function(){
+        $("img:eq(2)").fadeIn();
+    });
+    $("span:eq(3)").click(function(){
+        $("img:eq(3)").fadeToggle();
+    });
+    
+    $("img:eq(4)").click(function(){
+        $(this).slideUp();
+        return false;
+    });
+    $("span:eq(4)").click(function(){
+        $("img:eq(4)").slideToggle(100);
+    });
+    
+</script>
+</body>
+</html>

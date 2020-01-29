@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>수치조작 메서드</title>
+<style>
+    body {height:1000px;}
+    .redBox {background-color:red;color:#fff;}
+    ul {position: relative;}
+    ul,li {box-sizing: border-box;}
+    li {border:2px solid #eee; margin:0;transition: all .3s ease;cursor: pointer;width:100%;padding:10px;}
+    li:hover {border-color:red;}
+    li:nth-child(4) {position: absolute; left:300px; top:300px; width:300px;}
+    li:nth-child(5) {position: fixed;width:600px;}
+</style>
+</head>
+<body>
+<h1>jQuery : 수치조작 메서드</h1>
+<ul id="memo">
+    <li>크기변경 : 300 x 200</li>
+    <li>크기변경(토글기능)</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li><span>scrollTop: xxx</span>
+        <button>▲(-100)</button>
+        <button>▼(+100)</button>
+        <button>마지막으로 이동</button>
+        
+    </li>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>    
+    var box;
+    // li:eq(0) 크기변경 300 x 200
+    $("#memo li:eq(0)").click(function(){
+        $(this).width(300).height(200);
+    });
+    
+    // li:eq(1) 크기변경 토글기능
+    $("#memo li:eq(1)").click(function(){
+        if(box!=1) { 
+            $(this).width(300).height(200);
+            box = 1;
+        } else {
+            $(this).width("").height("");
+            box = 0;
+        }
+    });
+    
+    // width: xxx / innerWidth: xxx / outerWidth: xx
+    var l3=$("#memo li:eq(2)");
+    l3.text("width:"+l3.width()+" / innerWidth:"+l3.innerWidth()+" / outerWidth:"+l3.outerWidth());
+    
+    // position(left, top) / offset(left, top)
+    var l4=$("#memo li:eq(3)");
+    l4.text("position("+l4.position().left+", "+l4.position().top+") / offset("+l4.offset().left+", "+l4.offset().top+")");
+    
+    // li:eq(3) 각 버튼들 기능
+    var scrT=$(window).scrollTop();
+    function scrTop(){  // scrolTop 화면 출력
+        $("span").text("scrollTop: "+$(window).scrollTop());
+    }
+    scrTop();
+    
+    var maxScr = $("body").height() - $(window).height();
+    $("button").eq(0).click(function(){
+        if($(window).scrollTop()>0){
+            scrT-=100;
+            $(window).scrollTop(scrT);
+            scrTop();
+        }
+    });
+    $("button").eq(1).click(function(){
+        if($(window).scrollTop()<maxScr) {
+            scrT+=100;
+            $(window).scrollTop(scrT);
+            scrTop();
+        }
+    });
+    $("button").eq(2).click(function(){
+        $(window).scrollTop(maxScr);
+        scrTop();
+    });
+    
+</script>
+</body>
+</html>

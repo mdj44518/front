@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>click game</title>
+<style>
+    * {margin:0;padding:0;user-select: none;}
+    .screen_out {display:none;}
+    html,body {height:100%;}
+    body {display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    /*
+        flext-direction : 정렬방향(가로형, 세로형)
+        align-items : (자식요소들의) 가로정렬
+        justify-content : (자식요소들의) 세로정렬
+    */
+    #time {background-color:orange;padding:10px 30px;}
+    #score {background-color:yellow; min-width:300px;padding:10px 20px;text-align:center;font:bold 30px/30px tahoma,sans-serif;margin:10px 0 20px;}
+    #result {border:1px solid red;position: fixed;width:600px; height:300px;background-color:coral;border:5px solid red;display:none; flex-direction:column;align-items:center;justify-content:center;font-size:20px;}
+    #re_bt {border-radius:100px; padding:10px 30px;position: fixed;margin-top:100px;display: none;}
+</style>
+</head>
+<body>
+<h1 class="screen_out">Click Game</h1>
+<p id="time">10초 광클릭 게임</p>
+<p id="score">클릭하면 자동으로 시작합니다.</p>
+<div id="result">당신의 신손의 손이군요.</div>
+<button id="re_bt">REPLAY</button>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    var score=0,tscore=0,time=0;
+    function count() {
+        if(score==0){   // 클릭시 한번만 실행
+            $("#time").text("시간 : 0 / 10");
+            var play = setInterval(function(){  // 10초 세기
+                // 시간 : 1 / 10
+                $("#time").text("시간 : "+(++time)+" / 10");
+                if(time==10) {  // 10초 때에 반복x, 이벤트x
+                    clearInterval(play);
+                    $(document).off();
+                    if(score>tscore)tscore = score;//최고점수 업데이트
+                    if(score<30) { msg="좀더 노력해 주세요."}
+                    else if(score>30&&score<50) {msg="잘 하시네요."} else {msg="대단합니다."}
+                    $("#result").html(score+"점, "+msg+"<br>최고점수 "+tscore+"점");
+                    $("#result").css("display","flex");
+                    $("#re_bt").css("display","block");
+                }
+            },1000);
+        }
+    }
+    function play() {
+        $(document).click(function(){
+            // 화면 클릭시 10초 세기
+            count();
+            // 화면 클릭시 숫자업(점수)
+            ++score;
+            $("#score").text(score);          
+        });
+    }
+    
+    $("#re_bt").click(function(){
+        score = 0;
+        time = 0;
+        $("#result").css("display","none");
+        $("#re_bt").css("display","none");
+        play();
+    });
+    
+    play();
+    
+
+</script>
+</body>
+</html>

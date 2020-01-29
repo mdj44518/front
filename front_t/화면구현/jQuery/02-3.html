@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>객체편집 메서드</title>
+<style>
+    * {margin:0;padding:0;list-style:none;box-sizing:border-box;}
+    h1,h2 {text-align: center;margin:20px;}
+    #animal {margin:auto;border:3px solid orange;width:600px; border-radius:20px;padding:30px;min-height:116px;font-size:0;text-align:center;}
+    #animal li {background-color:orange;color:#fff;font-weight:bold;text-align:center;line-height:30px;display: inline-block;padding:10px 20px;font-size:15px;margin:5px;cursor:pointer;position: relative;}
+    #animal li:hover::after {
+        content: "삭제(click)";
+        position: absolute;
+        background-color:black;
+        left:50%;
+        white-space:nowrap;
+        padding:0 5px;
+        transform:translateX(-50%);
+        font-size:11px;
+    }
+    div {margin:30px auto;width:600px;text-align:center;}
+    
+</style>
+</head>
+<body>
+<h1>jQuery : 객체편집 메서드</h1>
+<h2>좋아하는 동물</h2>
+<ul id="animal">
+    <li>토끼</li>
+    <li>고양이</li>
+    <li>개</li>
+    <li>앵무새</li>
+</ul>
+<div>
+    <input type="text" name="ani" placeholder="동물이름" id="ani">
+    <button>앞에 추가</button>
+    <button>뒤에 추가</button>
+    <button>비우기</button>
+    <input type="checkbox" name="copy" id="copy">
+    <label for="copy">복사</label>
+</div>
+<p>
+    <label>라벨글</label>1
+</p>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>    
+    var ani="";
+    
+    $("button").eq(0).click(function(){ // 앞에 추가
+        ani=$("#ani").val();
+        //alert(ani);
+        $("#animal").prepend("<li>"+ani+"</li>");
+        $("#ani").val("").focus();
+        
+    });
+    $("button").eq(1).click(function(){ // 뒤에 추가
+        ani=$("#ani").val();
+        $("#animal").append("<li>"+ani+"</li>");
+        $("#ani").val("").focus();
+    });
+    $("button").eq(2).click(function(){ // 비우기
+        $("#animal").empty();
+        $("#ani").val("").focus();
+    });
+    
+    /*
+        - 페이지 입장시 input에 포커스 주기
+        - 엔터를 누르면 앞에추가 버튼 기능
+        - 각버튼에 input 초기화 > input 포커스 주기
+    */
+    $("#ani").focus();
+    $("#ani").keydown(function(e){
+        //alert(e.keyCode); enter키는 13
+        if(e.keyCode==13) {
+            ani=$("#ani").val();
+            $("#animal").prepend("<li>"+ani+"</li>");
+            $("#ani").val("");
+        }
+    });
+    
+    // li를 클릭해서 삭제/복제기능
+//    $("#animal li").click(function(){
+//        var copy = $("#copy").is(":checked");
+//        // alert(copy);
+//        if(copy) {
+//            var copy = $(this).clone();
+//            $(this).before(copy);
+//        } else {
+//            $(this).remove();
+//        }
+//    });
+    
+    // 동적요소를 포함한 선택자에 on()사용
+    // 선택자.on("이벤트 이벤트...","(이벤트작동대상)",실행문)
+    $("#animal").on("click","li",function(){
+        var copy = $("#copy").is(":checked");
+        // alert(copy);
+        if(copy) {
+            var copy = $(this).clone();
+            $(this).before(copy);
+        } else {
+            $(this).remove();
+        }
+    });
+    
+    /*
+    $("p label").nextSibling().wrap("<span>").css("color","red");
+    */
+    
+
+</script>
+</body>
+</html>

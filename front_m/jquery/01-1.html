@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>직접선택자</title>
+</head>
+<body>
+<h1>직접선택자</h1>
+<ul>
+    <li>내용1</li>
+    <li id="txt2">내용2</li>
+    <li class="blue">내용3</li>
+    <li>내용4</li>
+    <li>내용5</li>
+    <li class="blue">내용6</li>
+    <li>내용7</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $("li:first-child").css("color", "red");
+    $("li:nth-child(1)").css("color", "red");
+    $("li:first").css("color", "red");
+    $("li:eq(0)").css("color", "red");
+    $("li").first().css("color", "blue");
+    
+    $("#txt2").css("background-color", "green");
+    $(".blue").css("color", "blue");
+    $("li").css("text-decoration", "underline");
+    
+    $("li:eq(3), li:eq(4)").css("font-weight", "bold");
+</script>
+</body>
+</html>

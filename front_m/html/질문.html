@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html>
+<meta charset="utf-8">
+<title>ㅁㄴㅇ</title>
+<head>
+    <style>
+        #wrap {
+            box-sizing: border-box;
+            background-image:url(img/tenor.gif);
+            background-repeat: no-repeat;
+            background-size: 100px;
+            background-position: -10px bottom;
+            width: 600px;
+            border: 1px solid gray;
+            height: 600px;
+            transition: all 2s;
+        }
+        #wrap:hover {
+            background-position: top;
+        }
+        
+        
+        
+        
+        legend {display:none;}
+        fieldset {
+            
+        }
+        #didi {width:200px;height:200px; background-color:yellow;}
+        /* 구체성의 인라인이란? */
+        #sss * {background-color:red;} /* 구체성 점수 : 0 0 0 1 */
+        #didi .ppp * {background-color:gray;} /* 구체성 점수 : 0 1 1 0 */
+/*        #sss {background-color:pink;}  구체성 점수 : 1 0 1 0  */
+        #didi .ppp {background-color:gray;} /* 구체성 점수 : 1 0 1 0 */
+        #didi div {background-color:green;} /* 구체성 점수 : 1 0 0 1 */
+    </style>
+</head>
+    
+<body>
+    <div id="didi">
+        <p class="ppp"><span id="sss">안녕</span></p>
+        <div class="ppp"><b id="sss">난div</b></div>
+    </div>
+<div id="wrap">
+    <fieldset>
+        <legend>난 레줜드</legend>
+        <form>
+            <input>
+        </form>
+    </fieldset>
+</div>
+</body>    
+</html>

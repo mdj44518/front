@@ -1,0 +1,55 @@
+/* reset */
+* {margin:0;padding:0;list-style:none;text-decoration:none;box-sizing: border-box;}
+fieldset {border:none;}
+
+/* common */
+.screen_out {display: none;width:0;height:0;text-indent: -9999px;}
+
+/* main */
+h1 {text-align: center;margin: 30px;}
+#gnb ul {
+    width:980px;height:36px;
+    border-radius: 4px;
+    margin:auto;
+    border-top:1px solid #797979;
+    border-bottom:1px solid #575757;
+    background:linear-gradient(#818181, #717171 50%, #5e5e5e 50%, #757575);
+    box-shadow:0 2px 3px 1px rgba(0,0,0,.2);
+}
+#gnb li {
+    border-left:1px solid #929292;
+    border-right:1px solid #5b5b5b;
+    width:107px;height:34px;
+    float: left;
+}
+#gnb li:first-child {border-radius: 4px 0 0 4px;text-indent: -9999px; }
+#gnb li:first-child a {background:url(img/apple.png) no-repeat center center;}
+#gnb li:last-child {width:124px;border-radius: 0 4px 4px 0;}
+#gnb li:last-child input {
+    height:20px;width:105px;
+    margin: 7px auto 0;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,.1);
+    display: block;
+    border:none;
+    box-shadow: inset 0 3px 2px rgba(0,0,0,.4);
+    color:#fff;
+    padding-left:10px;
+    outline: none;
+    background:url(img/apple_search.png) no-repeat left top;
+}
+#gnb li:last-child input:focus {
+    background:none;
+}
+#gnb li:hover:not(:last-child) {    /* 가상클래스 not(가상클래스, 아이디, 클래스) */
+    background:linear-gradient(#3f3f3f, #383838 50%, #434343 50%, #555);
+    box-shadow: inset 0 0 5px 5px #535353;
+}
+#gnb li a {
+    display: block;
+    height:34px;
+    text-align: center;
+    color:#fff;
+    font:bold 12px/34px Arial, sans-serif;
+    text-shadow: 0 -1px 2px rgba(0,0,0,.4);
+}

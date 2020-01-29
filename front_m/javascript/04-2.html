@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>올해 남은 일수는?</title>
+<script>
+    var day = new Date(),
+        nowYear = day.getFullYear(),
+        lastDay = new Date(nowYear + "/12/31"),
+        dDay = lastDay - day;
+    
+    document.write("올해 "+ nowYear +"년도는 " + Math.ceil(dDay/86400000) + "일 남았습니다.<br>");
+    
+    
+    var birthDay = new Date(prompt("생년월일을 입력해주세요. ex)1999/01/01 ", "2019/07/01")),
+        nowDay = new Date(),
+        countDay = nowDay - birthDay;
+    
+    document.write("당신은 태어난지 " + Math.floor(countDay/86400000) + "일 지났습니다.")
+        
+</script>
+</head>
+<body>
+<h1></h1>
+<h2></h2>
+</body>
+</html>

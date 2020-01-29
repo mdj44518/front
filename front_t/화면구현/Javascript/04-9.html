@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>정규표현식</title>
+<script>
+    var email = prompt("이메일주소?","zmetron@nate.com"),
+        email_reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    //alert(email_reg.test(email));
+    if(email_reg.test(email)) {
+        document.write("이메일 "+email+"은 정확한 주소입니다.")
+    }else {
+        document.write("이메일 "+email+"은 잘못된 주소입니다.")
+    }
+</script>
+</head>
+<body>
+
+</body>
+</html>

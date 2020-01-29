@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM - 이벤트핸들러</title>
+</head>
+<body>
+<h1>DOM - 폼요소선택자</h1>
+<form action="#" method="get" name="f1">
+    <fieldset>
+        <legend>폼요소1</legend>
+        <p>
+            <label for="pw1">비밀번호</label>
+            <input type="password" id="pw1" name="pw1" class="">
+        </p>
+        <p>
+            <label for="pw2">비밀번호 확인</label>
+            <input type="password" id="pw2" name="pw2">
+            <input type="submit" value="확인" id="bt1">
+        </p>
+    </fieldset>
+</form>
+<form action="#" method="get" name="f2">
+    <fieldset>
+        <legend>폼요소2</legend>
+        <p id="terms">
+            회사는 법령이 정하는 바에 따라 "회원의 개인정보를 보호하기 위해 노력합니다. 개인정보이 보호 및 사용에 대해서는....
+        </p>
+        <p class="yy">
+            <input type="checkbox" id="accept" name="accept">
+            <label for="accept">약관에 동의합니다.</label>
+        </p>
+        <p>
+            <input type="checkbox" id="allchk">
+            <label for="allchk">전체선택</label><br>
+            <input type="checkbox" id="hobby1" name="hobby">
+            <label for="hobby1">취미1</label><br>
+            <input type="checkbox" id="hobby2" name="hobby">
+            <label for="hobby2">취미2</label><br>
+            <input type="checkbox" id="hobby3" name="hobby">
+            <label for="hobby3">취미3</label>
+        </p>
+        <p>
+            <input type="submit" value="등록완료" id="bt2" disabled>
+            <input type="reset" value="취소">
+        </p>
+    </fieldset>
+</form>
+<script>
+    document.getElementById("bt1").onclick = function() {
+        var pw1 = document.f1.pw1.value,
+            pw2 = document.f1.pw2.value;
+        if (pw1 !== pw2) {
+            alert("비밀번호 불일치");
+            document.f1.pw1.value = "";
+            document.f1.pw2.value = "";
+            document.f1.pw1.focus();
+            return false;
+        }
+        alert("비밀번호 일치~");
+        return false;
+    }
+    document.f2.accept.onclick = function() {
+        if (document.f2.accept.checked) {
+//            var a = document.f2.children[0].lastElementChild.innerHTML;
+//            document.f2.children[0].lastElementChild.innerHTML = a.replace("disabled", "");
+            document.f2.bt2.disabled = "";// undefined null false 다됨;
+//            document.f2.bt2.removeAttribute("disabled");
+        } else {
+            document.f2.bt2.setAttribute("disabled", "true");
+        }
+    }
+    document.f2.allchk.onclick = function() {
+        if (document.f2.allchk.checked) {
+            var pTag = document.f2.children[0].children[3].children;
+            for (var i = 3; i < pTag.length; i+=3) {
+                document.f2.children[0].children[3].children[i].checked = true;
+            }
+        } else {
+            var pTag = document.f2.children[0].children[3].children;
+            for (var i = 3; i < pTag.length; i+=3) {
+                document.f2.children[0].children[3].children[i].checked = false;
+            }
+        }
+    }
+    //3개 버튼에따른 검증
+    for (var i = 0; i < 3; i++) {
+        document.f2.querySelectorAll('input[name=hobby]')[i].onclick = function() {
+            var j = document.f2.hobby;
+            if (j[0].checked && j[1].checked && j[2].checked) {
+                document.f2.allchk.checked = true;
+            } else {
+                document.f2.allchk.checked = false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

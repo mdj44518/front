@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>월드컵 날짜 정보 출력하기</title>
+<script>
+    var day = ["일","월","화","수","목","금","토"],
+        t = new Date("2002/5/31"),
+        now = "";
+    now += t.getFullYear() + "년 월드컵은 ";
+    now += t.getMonth()+1 + "월 "
+    now += t.getDate() + "일 ";
+    now += day[t.getDay()] + "요일 입니다.";
+    document.write(now);
+</script>
+</head>
+<body>
+<h1></h1>
+<h2></h2>
+</body>
+</html>

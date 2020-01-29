@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트 중복 등록 해결</title>
+</head>
+<body>
+<h1>이벤트 중복 등록 해결</h1>
+<h2>배경색 변경</h2>
+<button id="bt">이벤트</button>
+<script>
+    // 방법1
+//    document.getElementById("bt").onclick = function() { fnc1(); fnc2(); }
+    function fnc2() {alert("실행문2")}
+    function fnc1() {alert("실행문1")}
+    
+    
+    // 방법2
+//    document.getElementById("bt").addEventListener("click", fnc1,);
+//    document.getElementById("bt").addEventListener("click", fnc2,);
+    
+    // 방법2 + 보완(크로스브라우징)
+    var bt = document.getElementById("bt");
+    if (window.addEventListener) {
+        bt.addEventListener("click", fnc1,);
+        bt.addEventListener("click", fnc2,);
+    } else {
+        bt.attachEvent("onclick", fnc1);//???
+        bt.attachEvent("onclick", fnc2);
+    }
+    
+    
+</script>
+</body>
+</html>

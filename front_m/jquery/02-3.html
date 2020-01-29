@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>객체편집 메서드</title>
+<style>
+    * {margin:0;padding:0;list-style:none;box-sizing:border-box;}
+    h1, h2 {text-align: center;margin:20px;}
+    #animal {margin:auto;border:3px solid orange;width:600px;border-radius:20px;padding:30px;font-size:0;}
+    #animal li {background-color:orange;color:#fff;font-weight:bold;text-align:center;line-height:30px;display:inline-block;padding:10px 20px;margin:5px;font-size:15px;cursor:pointer;position: relative;}
+    #animal li:hover::after {
+        content: "삭제(click)";
+        position: absolute;
+        background-color:black;
+        left: 50%;
+        white-space:nowrap;
+        padding:0 5px;
+        transform:translateX(-50%);
+    }
+    div {margin:30px auto; width:600px;text-align:center;}
+    i {font-size:20px;}
+</style>
+</head>
+<body>
+<h1>jQuery : 객체편집 메서드</h1>
+<ul id="animal">
+    <li>토끼</li>
+    <li>고양이</li>
+    <li>개</li>
+    <li>앵무새</li>
+</ul>
+<div>
+    <input type="text" name="ani" id="ani" placeholder="동물">
+    <button>앞에추가</button>
+    <button>뒤에추가</button>
+    <button>모두삭제</button>
+    <input type="checkbox" name="copy" id="copy">
+    <label for="copy">복사기능활성</label>
+</div>
+<p>
+    <label>난스팬</label>1
+</p>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    //앞에추가버튼
+    $("button").eq(0).click(function(){
+        $("#animal").prepend($("<li>").text($("input:text").val()).click(function(){
+        var check = $("#copy").is(":checked");
+       if(check){
+            var copy = $(this).clone();
+            $(this).before(copy);
+       } else {
+            $(this).remove();
+       }
+    }));
+        $("input:text").val("").focus();
+    });
+    //뒤에추가버튼
+    $("button").eq(1).click(function(){
+        var ani = $("input:text").val();
+        $("#animal").append("<li>" + ani + "</li>");
+        $("input:text").val("").focus();
+    });
+    //모두삭제버튼
+    $("button").eq(3).click(function(){
+        $("#animal").empty();
+    });
+    
+//    $("#ani").attr("autofocus", "true");
+    $("#ani").focus();
+    
+    $("#ani").keydown(function(e){
+        var event = e ? e : window.event;
+        if (event.keyCode == 13){
+            $("button").eq(0).click();
+        }
+    });
+    
+    // li 클릭시 삭제/복제기능
+    // 체크박스에 따른 체크여부
+//    $("#animal li").click(function(){
+//        var check = $("#copy").is(":checked");
+//       if(check){
+//            var copy = $(this).clone();
+//            $(this).before(copy);
+//       } else {
+//            $(this).remove();
+//       }
+//    });
+    
+    // 동적요소를 포함한 선택자에 on()사용
+    // 선택자.on("이벤트 이벤트...", "(이벤트작동대상)", 실행문)
+    $("#animal").on("click", "li", function(){
+        var check = $("#copy").is(":checked");
+       if(check){
+            var copy = $(this).clone();
+            $(this).before(copy);
+       } else {
+            $(this).remove();
+       }
+    });
+    
+    $("label").wrap("<i>");
+    
+//    $("p label").nextSibling().wrap("<span>").css("background-color", "red");
+</script>
+</body>
+</html>

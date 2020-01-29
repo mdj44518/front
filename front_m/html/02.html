@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>테이블(table)</title>
+    <style>
+        .te:hover {
+            transition: 5s;
+            transform: rotate(360deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>테이블</h1>
+<h2>테이블기본</h2>
+    <div class="te">
+<table border="1" cellpadding="20">
+    <tr>
+        <td colspan="2">1</td>
+        <td rowspan="2">3</td>
+    </tr>
+    <tr>
+        <td rowspan="2">4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td colspan="2">8</td>
+    </tr>
+</table>
+</div>
+<h2>웹표준 코딩 테이블</h2>
+<div class="te">
+<table border="1" cellpadding="20">
+    <caption>테이블의 요약내용 또는 제목</caption>
+    <thead>
+        <tr>
+            <td>순번</td>
+            <td scope="col">내용</td>
+            <td>비고</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row">1</td>
+        <!-- scope : 스크린리더기가 읽기 쉽도록 정보의 방향을 설정해줌. -->
+        <td width="200">내용들</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>내용들</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>내용들</td>
+        <td></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>요약</td>
+        <td colspan="2">내용들</td>
+    </tr>
+    </tfoot>
+</table>
+</div>
+</body>
+</html>

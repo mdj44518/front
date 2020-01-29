@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>표준 체중 계산하기</title>
+<script>
+    /* 문제) 사용자에게 키, 몸무게를 입력받아 당신은 표준몸무게입니다. (표준몸무게와 같을때)
+                                              표준몸무게 보다 00kg 초과입니다. (과체중일때)
+                                              표문몸무게 보다 00kg 부족합니다. (저체중일떄)*/
+    /* 표준몸무게 = (키 - 100) * 0.9    */
+    var height = Number(prompt("키는?","174")), //교통비
+        weight = prompt("몸무게는?", "67")*1, //식비
+        avge = Math.round((height-100) * 0.9), //반올림
+        result;
+    
+    if(weight == avge) {result="당신은 표준 몸무게 입니다."}
+    else if (weight > avge) {result="표준 몸무게 보다 " + (weight-avge) + "kg 초과입니다."}
+    else  {result="표준 몸무게 보다 " + (avge-weight) + "kg 초과입니다."}
+    document.write(result);
+//    var info = prompt("입력 : 키/몸무게", "");
+//    var num = info.split("/");
+//    var i = (num[0]*1 - 100) * 0.9;
+//    var result;
+//    var j = String(Math.abs(i - num[1]));
+//    if (i > num[1]) {
+//        result = "표준몸무게 보다" + (j.substr(0, j.indexOf(".")+3)) + "kg 부족합니다."
+//    } else if (i < num[1]) {
+//        result = "표준몸무게 보다" + (j.substr(0, j.indexOf(".")+3)) + "kg 초과입니다."
+//    } else {
+//         result = "당신은 표준몸무게입니다."
+//    }
+</script>
+</head>
+<body>
+</body>
+</html>

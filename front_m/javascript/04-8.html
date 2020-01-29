@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이름과 전화번호 받아 출력하기</title>
+<script>
+    // 문제) 사용자에게 영문이름과 전화번호를 받아('-'없이)
+    // 대문자 영문이름, 전화번호가 000-0000-0000 식으로 출력.
+    var name = prompt("영문이름 입력", "moon dong ju"),
+        phone = prompt("전화 입력('-' 생략)", "01057792054");
+    // 인덱스 3 , 7
+    var t = "-" + phone.charAt(3);
+    var s = "-" + phone.charAt(7);
+    // 마지막 이름 별
+    var idx = name.lastIndexOf(" "),
+        last_name = name.substring(idx+1, name.length),
+        star_name = name.replace(last_name, last_name.replace(/./g,"*"));    
+    document.write(star_name.toUpperCase(), " : " ,(phone.replace(phone.charAt(3), t)).replace(phone.charAt(7), s));// 오류오류오류오류오류
+    document.write("<br>",phone);
+//  document.write(name + ", " + (phone.replace(phone.charAt(3), t)).replace(phone.charAt(8), s);
+    
+</script>
+</head>
+<body>
+</body>
+</html>

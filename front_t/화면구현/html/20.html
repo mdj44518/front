@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IR/IS 기법</title>
+<style>
+    * {margin:0; padding:0;box-sizing: border-box;list-style: none;}
+    #weather {width:800px;margin:auto;border:1px solid red;overflow: hidden;}
+    #weather li{border:1px solid gray; width: 80px; height:65px;float:left;margin:10px;background-image: url(img/weather.jpg);text-indent: -100px;overflow: hidden;}
+    #weather li:nth-child(1) {background-position: -76px -53px; }
+    #weather li:nth-child(2) {background-position: -175px -53px; }
+</style>
+</head>
+<body>
+<h1>IR(이미지대치, Image Replacement)/IS(Image Sprite)</h1>
+<h2>IR기법(이미지대치 기법)</h2>
+<p>IR 기법이란 웹표준, 웹접근성에 의한 마크업(텍스트)을 원하는 이미지로 대치하는 기법</p> 
+<h2>IS기법(Image Sprite)</h2>
+<p>브라우저에서의 이미지 렌더링은 작은 이미지 여러개 표현보다 큰 이미지 한개 표현이 훨씬 빠름.
+IS기법을 활용하여 애니매이션도 가능.</p> 
+<h2>예제 : 날씨 픽토그램 안내페이지</h2>
+<ul id="weather">
+    <li>맑음</li>
+    <li>구름</li>
+    <li>흐림</li>
+    <li>소나기</li>
+    <li>우박</li>
+    <li>장마</li>
+    <li>뇌우</li>
+    <li>밤까지 흐림</li>
+    <li>흐리고 비</li>
+    <li>천둥번개</li>
+    <li>강풍</li>
+    <li>눈</li>
+    <li>비</li>
+    <li>다습</li>
+    <li>밤늦게 우박</li>
+    <li>안개</li>
+</ul>
+</body>
+</html>

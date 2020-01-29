@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+    var email = prompt("이메일주소?", "zmetron@nate.com"),
+        email_reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    alert(email_reg.test(email) ? "맞는양식" : "틀린양식");
+</script>
+</head>
+<body>
+</body>
+</html>

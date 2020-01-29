@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>제어문</title>
+    <script>
+        function tt(num) {
+            if (num) {
+                console.log("true");
+            } else {
+                console.log("false");
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>제어문</h1>
+<h2>제어문이란?</h2>
+<ul>
+    <li>제어문이란 프로그램의 흐름을 제어할 수 있도록 도와주는 실행문</li>
+    <li>조건문 : 조건에 따라 실행(if, else, else if)</li>
+    <li>선택문 : 값이 일치하는 경우 실행 (switch)</li>
+    <li>반복문 : 반복해서 실행 (while, for)</li>
+</ul>
+<h2>조건문</h2>
+<ul>
+    <li>if(조건식) { 실행문: }</li>
+    <li>조건식에 논리형 데이터가 아닌 다른형이 오는 경우<br>
+        - 0, null, undefined, (비어있는String?) : false로 인식<br>
+        - var num=0: if(num) : false로 인식 (숫자'0' 자체를 false로 인식)
+    </li>
+    <li>else문 : if(조건식) { 실행문; } else { 실행문2; }</li>
+    <li>예제 : <a href="03-1.html">홀짝 구분하기</a></li>
+</ul>
+<h2>선택문</h2>
+<ul>
+    <li>switch(변수) { <br>
+        case 값1 : 실행문1; <br>
+                    break;  <br>
+        case 값2 : 실행문2; <br>
+                    break;  <br>
+        default : 실행문3; <br>
+        마지막엔 default(break 사용안함)
+    </li>
+    <li>예제 : <a href="03-2.html">즐겨 사용하는 포털은?</a></li>
+</ul>
+<h2>반복문</h2>
+<ul>
+    <li>while (조건식) { 실행문; 증감식; } <br>
+    </li>
+    <li>예제 : <a href="03-3.html">1~100 숫자 세기</a></li>
+    <li>do { 실행문; 증감식; } while (조건식);
+    </li>
+    <li>예제 : <a href="03-4.html">인사말 반복하기</a></li>
+    <li>for(초기값; 조건식; 증감식) { 실행문; }</li>
+    <li>break : 반복문을 중단할경우<br>
+        continue : 실행문을 넘기고 다음횟차 반복문 실행
+    </li>
+    <li>예제 : <a href="03-5.html">중첩 for 문</a>,<a href="03-6.html">중첩for로 테이블만들기</a></li>
+</ul>
+</body>
+</html>

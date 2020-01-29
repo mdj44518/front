@@ -1,0 +1,58 @@
+* {margin:0;padding:0;box-sizing:border-box;text-decoration: none;}
+.screen_out {display:none;}
+body {background-color:#f5f6f7;}
+#wrap {width:748px;margin:auto;position: relative;overflow: hidden;}
+h1 {width:233px; height: 46px;background-image:url(../img/naver_logo.gif);text-indent:-9999px;overflow: hidden;margin:60px auto 68px;}
+h1 a {display:block; width:233px; height: 46px;}
+#lang {border:1px solid #ccc;width:95px;height:30px;outline:none;position: absolute;top:14px;right:0;}
+#lang:focus {border:1px solid #03c75a;}
+form {width:460px;margin:auto;}
+form fieldset {border:none;}
+form input:not(#auto) {width:100%;display:block;height:51px;border:1px solid #dadada;padding:17px;outline:none;} /* 구체성 0 1 1 2 */
+form input.screen_out:not(#auto) {display: none;} 
+form #pw {margin:14px 0 30px;}
+form #id:focus,form #pw:focus {border-color:#03c75a;font-size:14px;}
+#wrap form input[type=submit] {background-color:#03c75a;border:none;height:61px;color:#fff;font-size:20px;}
+form p:nth-child(5) {width:130px;;float: left;}
+form p:nth-child(6) {width:180px;float: right;font-size:12px;color:#666; margin-top:20px;}
+form p:nth-child(6) a {color:#666;float:left; margin-right:8px} 
+form p:nth-child(6) a:nth-child(6) {margin-left:10px; text-decoration:underline;}
+form p:nth-child(6) span:nth-child(5) {float:left; margin-left:30px; margin-top: -1px;}
+form p:nth-child(6) input {color:#666;float:left;width:0px;border:1px solid blue;}
+form p:nth-child(6)>span:last-child {
+    float:left;
+    border:1px solid red; width:14px; height:14px; border:1px solid #b6b6b6; margin-top:2px;}
+form p:nth-child(6)>span:last-child:hover span:last-child {display: block;}
+form p:nth-child(6)>span:last-child>span:first-child {font-size:0;}
+form p:nth-child(6)>span:last-child>span:first-child::before {
+    content:"?";
+    font-size:14px;
+    position:absolute; font-family:tahoma, sans-serif; font-weight:bold;margin: -3px 0 0 2px;} 
+form p:nth-child(6)>span:last-child span:last-child {
+    display: none;
+    position:absolute; padding:8px;border: 1px solid #888; color:#666; width:297px; margin-left: -282px; font-family:굴림,gulim,sans-serif; line-height: 17px;background-color:#fff; margin-top:5px;}
+form #auto {display: none;}
+form label {font-size:12px;margin:20px 0 0 35px;display: block;}
+form label i.fa {font-size:28px;color:#ccc;position: absolute;margin-left:-35px;margin-top:-5px;}
+form input:checked + label i.fa {color:#03c75a;}
+#wrap form #security {width:0; height:0;}
+form #security::after {
+    content:"OFF";position: absolute;display: block;font-size:12px;font-weight:bold; margin-top:3px;}
+form #security:checked::after { content:"ON"; color:#00c850;}
+form+hr {width:460px;border:none; border-top:1px solid #e4e4e4;margin:35px auto 18px;}
+section {text-align: center; font: 12px 굴림,gulim,sans-serif;}
+section a {color:#5f5f5f;}
+section span {color:#e4e4e4;}
+section img {margin:40px 0 108px;}
+
+nav ul {margin: auto; text-align: center;}
+nav li {display: inline-block; font: 12px 굴림,gulim,sans-serif;}
+nav a {color:#333333;}
+body section+nav a:hover {text-decoration: underline; color:#458a12;}
+nav li:not(:last-child)::after {content:" |"; color:#b7b7b7; font-weight:normal; font-size:6px; padding-left: 3px;}
+/*nav li:not(:last-child) {border-right: 1px solid #b7b7b7; padding-right: 6px;}*/
+nav li:nth-child(2) a {font-weight:bold; color:black;}
+/*nav li:nth-child(2) a:hover {color:#458a12;}*/
+address #logo {display: inline-block; width:61px; height:13px; background-image: url(../img/naver_logo_adress.gif); vertical-align: middle;}
+address {text-align: center;font-size:6px; font-style: normal; margin-top: 8px; letter-spacing: .8px;}
+address span:not(#logo) {font-weight: bold; color:#666666;}

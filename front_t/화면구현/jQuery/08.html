@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>메모리 게임</title>
+<style>
+    * {margin:0;padding:0;user-select:none;}
+    h1 {text-align:center;padding:20px;}
+    #wrap {display:flex; background:#ccc;height:300px; justify-content:center; align-items:center;}
+    #wrap div {width:200px;height:200px;display:flex;justify-content:center; align-items:center;}
+    #wrap p {border:3px solid #fff;border-radius:50%;width:100px;height:100px;}
+    #wrap div:nth-child(1) p {background:red;}
+    #wrap div:nth-child(2) p {background:orange;}
+    #wrap div:nth-child(3) p {background:yellow;}
+    #wrap div:nth-child(4) p {background:green;}
+    #score {text-align:center;padding:20px;font:bold 50px Tahoma,sans-serif;}
+    #start,#over {background-color:rgba(0,0,0,.9); position: fixed;left:0;top:0;width:100%;height:100%;display:none; justify-content:center;align-items:center;}
+    #start {display: flex;}
+    #start_bt,#replay_bt {padding:20px 50px;font-weight:bold; font-size:40px;cursor:pointer;}
+    
+</style>
+</head>
+<body>
+<h1>기억게임</h1>
+<div id="wrap">
+    <div><p></p></div>
+    <div><p></p></div>
+    <div><p></p></div>
+    <div><p></p></div>
+</div>
+<div id="score">0</div>
+<div id="start"><button id="start_bt">Start</button></div>
+<div id="over"><button id="replay_bt">Replay</button></div>
+  
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>    
+<script>
+    var num = "",   // 랜덤수
+        i,          // 모션반복회수
+        score=0,    // 점수
+        check=0;    // 클릭수, 모션수, 맞은수
+    // 컴퓨터 플레이
+    function motion() {
+        i=0;
+        num += Math.floor(Math.random() * 4); // 0,1,2,3
+        var run=setInterval(function(){
+            $("#wrap p").eq(num.charAt(i++))
+                    .animate({width:120,height:120},300)
+                    .animate({width:100,height:100},300);
+            if(i>=num.length)clearInterval(run);
+        },800);
+    }
+    
+    // 플레이어(버튼이벤트)
+        // 클릭하면 작아졌다 원래대로 모션
+        // 맞음일때 : 점수업, 체크index++
+        // 틀림일때 : 게임오버
+    $("#wrap p").click(function(){
+        var n=$("#wrap p").index(this);// 클릭한 요소의 인덱스값
+        //alert(n);
+        $(this).stop().animate({width:90,height:90},300)
+               .animate({width:100,height:100},300);
+        if(n==num.charAt(check)) {
+            $("#score").text(score+=100);
+            check++;
+            if(check>=num.length) {
+                check=0;
+                motion();
+            }
+        }else { 
+            $("#over").css("display","flex");
+        }
+    });
+    // 리플레이 버튼
+    $("#replay_bt").click(function(){
+        $("#over").hide();
+        score=0;
+        num="";
+        $("#score").text(score);
+        motion();
+    });
+    
+    // 시작 버튼을 누르면 시작하게
+    $("#start_bt").click(function(){
+        $("#start").hide();
+        motion();
+    });
+    
+</script>
+</body>
+</html>

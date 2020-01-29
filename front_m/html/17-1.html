@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>보더로 도형만들기</title>
+    <style>
+        div {width: 400px; height: 400px; background-color: aqua; position: relative;}
+        div>p {position: absolute; margin: 0;}
+        div>p:nth-child(1) {
+            border-top:;
+            border-right:50px solid transparent;
+            border-bottom:50px solid green;
+            border-left:50px solid transparent;
+            left: 50%;
+            margin-left: -50px;
+        }
+        div>p:nth-child(2) {
+            border-top:100px solid transparent;
+            border-right:;
+            border-bottom:;
+            border-left:100px solid green;
+            left: 50%;
+            top: 50px;
+            margin-left: -50px;
+        }
+        div>p:nth-child(3) {
+            border-top:;
+            border-right:100px solid orange;
+            border-bottom:100px solid transparent;
+            border-left:;
+            left: 50%;
+            top: 50px;
+            margin-left: -50px;
+        }
+        div>p:nth-child(4) {
+            border-top:;
+            border-right:;
+            border-bottom:50px solid orange;
+            border-left:50px solid transparent;
+            left: 50%;
+            top: 150px;
+            margin-left: -100px;
+        }
+        div>p:nth-child(5) {
+            border-top:50px solid orange;
+            border-right:50px solid transparent;
+            border-bottom:;
+            border-left:;
+            left: 50%;
+            top: 150px;
+            margin-left: -50px;
+        }
+        div>p:nth-child(6) {
+            border-top:50px solid orange;
+            border-right:;
+            border-bottom:;
+            border-left:50px solid transparent;
+            left: 50%;
+            top: 150px;
+        }
+        div>p:nth-child(7) {
+            border-top:;
+            border-right:50px solid transparent;
+            border-bottom:50px solid blue;
+            border-left:;
+            left: 50%;
+            top: 150px;
+            margin-left: 50px;
+        }
+        div>p:nth-child(8) {
+            border-top:;
+            border-right:40px solid transparent;
+            border-bottom:40px solid red;
+            border-left:40px solid transparent;
+            left: 50%;
+            top: 150px;
+            margin-left: -40px;
+        }
+        div>p:nth-child(9) {
+            border-top:40px solid red;
+            border-right:40px solid transparent;
+            border-bottom:;
+            border-left:40px solid transparent;
+            left: 50%;
+            top: 190px;
+            margin-left: -40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+</html>

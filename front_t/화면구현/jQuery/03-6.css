@@ -1,0 +1,25 @@
+* {margin:0;padding:0;list-style:none;box-sizing:border-box;}
+.screen_out {display:none;}
+input,button {display: block;}
+body {overflow-y: scroll;}
+h1 {text-align:center;padding:30px;}
+#wrap {border:2px solid #eee;border-radius:10px; padding: 20px;width:500px;margin:0 auto 40px;}
+header {border-bottom:1px dashed #eee;padding-bottom:20px;margin-bottom:20px;overflow: hidden;}
+dl {float:right;}
+dt {color:#222;font-weight:bold;float:left;clear:both;margin-right:10px;}
+dd {color:#555;float:left;}
+
+nav {position:fixed;right:-140px;top:50px;background-color: #111;color:#fff;border-radius:10px 0 0 10px;padding:20px; transition:all .3s ease;}
+nav:hover {right:0;}
+nav li {margin-bottom:10px;overflow:hidden;}
+nav li:last-child {margin:0;}
+nav strong {display:block;margin-bottom: 10px;}
+nav input {width:90px;}
+nav button {width:20px;height:20px;float:left;margin-right:5px;}
+nav button:hover {cursor:pointer;}
+nav button:last-child {margin:0;}
+nav button.color_bt {font-size:0;background-color:red;border:none;}
+nav button.color_bt:nth-child(4) {background-color:orange;}
+nav button.color_bt:nth-child(5) {background-color:yellow;}
+nav button.color_bt:nth-child(6) {background-color:green;}
+nav button.color_bt:nth-child(7) {background-color:blue;}

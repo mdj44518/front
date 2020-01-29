@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트 객체 생성</title>
+</head>
+<body>
+<h1>이벤트 객체 생성</h1>
+<h2>배경색 변경</h2>
+<button id="bt">이벤트</button>
+<script>
+    function fnc1() {alert("실행문1")}
+    var bt = document.getElementById("bt");
+    bt.onclick = function(uu) {
+        alert(uu.clientX);
+    }
+    
+    //크로스브라우징을 위해 보완
+    bt.onclick = function(e) {
+        var event = e ? e : window.event;
+        e.clientX;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>사진갤러리</title>
+<style>
+    #gallery {width:320px;padding:15px; border:1px solid #ccc;}
+    h1 {text-align: center;}
+    #photo_list {overflow: hidden;}
+    #inner_list {
+        margin: 0 auto; padding: 0; list-style:none;height:74px;width:850px;margin-left: 0;
+    }
+    .ttt {}
+    #inner_list li {float:left; margin:10px 17px;}
+    #btn_wrap {font-size:20px;}
+    #btn_wrap a:last-child {display:block; float:right;}
+</style>
+</head>
+<body>
+<div id="gallery">
+    <h1>사진갤러리</h1>
+    <p id="photo"><img src="../img/p1.jpg" width="320" height="240"></p>
+    <div id="photo_list">
+        <ul id="inner_list" class="ttt">
+            <li><a href="../img/p1.jpg"><img src="../img/p1.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p2.jpg"><img src="../img/p2.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p3.jpg"><img src="../img/p3.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p4.jpg"><img src="../img/p4.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p5.jpg"><img src="../img/p5.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p1.jpg"><img src="../img/p1.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p2.jpg"><img src="../img/p2.jpg" width="72" height="54"></a></li>
+            <li><a href="../img/p3.jpg"><img src="../img/p3.jpg" width="72" height="54"></a></li>
+        </ul>
+    </div>
+    <p id="btn_wrap">
+        <a id="before_img">이전</a>
+        <a id="after_img">다음</a>
+    </p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var list_a = $("#inner_list>li>a"),
+        list_a_size = 106,
+        viewNum = 3,
+        count = 0;
+        list_a.click(function() {
+            $("#photo").children(0).attr("src", this.href);
+            return false;
+        });
+    
+    // 다음버튼
+    $("#after_img").click(function(){
+        if (count < list_a.length - viewNum) {
+            count++;
+            $("#inner_list").animate({
+                "margin-left": count * -list_a_size
+            },300);
+        }
+    });
+    // 이전버튼
+    $("#before_img").click(function(){
+        if (count > 0) {
+            count--;
+            $("#inner_list").animate({
+                "margin-left": count * -list_a_size
+            },300);
+        }
+    });
+</script>
+</body>
+</html>

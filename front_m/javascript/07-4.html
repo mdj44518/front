@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트 객체 생성</title>
+</head>
+<body>
+<div id="wrap">
+<h1>이벤트 객체</h1>
+<h2>마우스 이벤트 객체 속성</h2>
+    <form action="#" method="get" name="f1">
+    <fieldset>
+        <legend>커서 위치 추적</legend>
+        <p>
+            <label>clientX : </label>
+            <input type="text" name="client_x">
+        </p>
+        <p>
+            <label>pageX : </label>
+            <input type="text" name="page_x">
+        </p>
+        <p>
+            <label>clientY : </label>
+            <input type="text" name="client_y">
+        </p>
+        <p>
+            <label>pageY : </label>
+            <input type="text" name="page_y">
+        </p>
+        <p>
+            <label>button : </label>
+            <input type="text" name="button">
+        </p>
+    </fieldset>
+    </form>
+<h2>키보드 이벤트 객체 속성</h2>
+    <form action="#" method="get" name="f2">
+    <fieldset>
+        <legend>키 코드 값</legend>    
+        <p>
+            <label>입력키보드 : </label>
+            <input type="text" name="key" id="key">
+            <label>유니코드 값 : </label>
+            <input type="text" name="code" id="code">
+        </p>
+    </fieldset>
+    </form>
+</div>
+<script>
+    var form1 = document.f1,
+        form2 = document.f2,
+        eventObj;
+    
+    document.onmousemove = function(e) {
+        eventObj = e ? e : window.event; // 구브라우저를 위해
+        form1.client_x.value = eventObj.clientX;
+        form1.client_y.value = eventObj.clientY;
+        form1.page_x.value = eventObj.pageX;
+        form1.page_y.value = eventObj.pageY;
+        
+    }
+    
+    form2.key.onkeypress = function(e) {
+        eventObj = e ? e : window.event;
+        form2.key.value = "";
+        form2.code.value = eventObj.keyCode;
+    }
+</script>
+</body>
+</html>

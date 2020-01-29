@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>자바스크립트의 기초</title>
+<script type="text/javascript">
+    var age="19";       // 변수 age 선언 + 문자 '19'를 대입
+    var age2;           // 변수 age2 선언
+    /* 여러줄 주석 */
+    alert(age+1);       // 문자+숫자는 (알아서)문자형으로 합침.
+    console.log(age2);  // undefined (값이 정의되지 않음)
+</script>
+</head>
+<body>
+<h1>자바스크립트의 기초</h1>
+<h2>변수</h2>
+<ul>
+    <li>변수 선언 : var box / var box=100;</li>
+    <li>변수의 데이터형 : 문자형, 숫자형, 논리형, null & undefined</li>
+    <li>네이밍규칙
+        <ul>
+            <li>첫글자는 반드시 영문만</li>
+            <li>두번째 글자부터는 영문, 숫자, $, _</li>
+            <li>예약어는 사용불가</li>
+            <li>변수명은 의미에 맞게 작명</li>
+            <li>대소문자를 구분한다.</li>
+        </ul>
+    </li>
+</ul>
+<h2>연산자</h2>
+<ul>
+    <li>산술연산자 : + - * / %</li>
+    <li>문자결합 연산자 : t1="문자", t2=999; result=t1 + t2;</li>
+    <li>대입연산자 : 연산된 값을 변수에 저장할 때
+        <ul>
+            <li>a += b -> a = a+b</li>
+            <li>a -= b -> a = a*b</li>
+            <li>a *= b -> a = a/b</li>
+            <li>a %= b -> a = a%b</li>
+        </ul>
+    </li>
+    <li>증감연산자 : a++, a--</li>
+    <li>비교연산자 : >, &lt;, >=, &lt;=, ==, !=, ===, !==</li> <!-- === !== 자료형까지 비교 -->
+    <li>논리연산자 : ||(또는), &&(그리고) !(아닌)</li>
+    <li>연산자 우선순위</li>
+        <ol>
+            <li>()</li>
+            <li>단항연산자 : --, ++, !</li>
+            <li>산술연산자 : *, /, %, +, -</li>
+            <li>비교연산자 : >, &lt;= ....</li>
+            <li>논리연산자 : &&, ||</li>
+            <li>대입 : =, +=, *= ...</li>
+        </ol>
+    <li>삼항연산자 ex) 조건식 ? 참 : 거짓</li>
+    <li>예제 : <a href="02-1.html">하루 지출비용 출력하기</a></li>
+    <li>예제 : <a href="02-2.html">적정 몸무게 계산하기</a></li>
+</ul>
+</body>
+</html>

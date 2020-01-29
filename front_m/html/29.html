@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D 관련</title>
+<style>
+    * {margin: 0; padding: 0; list-style:none;box-sizing: border-box;}
+    #scene {perspective:600px; margin: auto; width: 200px; height: 200px;}
+    #scene ul {position: relative; transform-style: preserve-3d; transition: all 1s ease;}
+    #scene li {
+        width:200px; 
+        height:200px;
+        text-align: center; 
+        line-height: 190px;
+        position:absolute;
+        color:white;
+        opacity: .5;
+    }
+    #scene:hover ul {transform: rotateY(60deg) rotateX(45deg);}
+    
+    #scene .Front {background-color:red;    transform: translateZ(100px);}
+    #scene .Back {background-color:orange;  transform: translateZ(-100px) rotateY(180deg);}
+    #scene .Left {background-color:green;   transform: translateX(-100px) rotateY(-90deg);}
+    #scene .Right {background-color:blue;   transform: translateX(100px) rotateY(90deg);}
+    #scene .Top {background-color:navy;     transform: translateY(-100px) rotateX(90deg);}
+    #scene .Bottom {background-color:purple;transform: translateY(100px) rotateX(-90deg);}
+    
+</style>
+</head>
+<body>
+<h1>3D - 큐브</h1>
+<div id="scene">
+    <ul>
+        <li class="Front">Front</li>
+        <li class="Back">Back</li>
+        <li class="Left">Left</li>
+        <li class="Right">Right</li>
+        <li class="Top">Top</li>
+        <li class="Bottom">Bottom</li>
+    </ul>
+</div>
+</body>
+</html>

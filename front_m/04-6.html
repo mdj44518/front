@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>배열</title>
+<script>
+    
+</script>
+</head>
+<body>
+<h1>배열</h1>
+<h2>배열의 출력</h2>
+<script>
+    var d = ["박수경", "우미타", "박진우", "이순근", "문동주"];
+    // alert(d[1]); // 인덱스 값으로 데이터를 getter
+    // alert(d.length);   //데이터의 갯수
+    for (var i = 0; i < d.length; i++) {
+        document.write(d[i] + "<br>");
+    }
+</script>
+<h2>배열의 형별, 정렬</h2>
+<script>
+    var station = ["사당", "교대", "수원", "강남"];
+    document.write("원본 배열객체 " + station + "<br>");
+    document.write("데이터타입 " + typeof station[0] + "<br>");
+    document.write("연결문자 변환 " + station.join(" / ") + "<br>");
+    document.write("데이터 역순 " + station.reverse() + "<br>");
+    document.write("오름차순 정렬 " + station.sort() + "<br>");
+</script>
+<h2>배열의 분할, 추가</h2>
+<script>
+    var green = ["사당", "교대", "방배", "강남"],
+        orange = ["미금", "정자", "모란", "수서"];
+    document.write("2호선 : " + green + "<br>");
+    document.write("3호선 : " + orange + "<br>");
+    var s1 = green.splice(2,1); // 2앞에서(인덱스) 자르고 1만큼 데이터를 잘라냄 (2,1,"값") 값도 넣으면 자른위치에 데이터 끼워넣음. 리턴값은 잘라진것.
+    document.write("2호선(splice) : " + green + "<br>");
+    document.write("2호선(splice) : " + s1 + "<br>");
+</script>
+<h2>배열의 병합, 삭제</h2>
+<script>
+    var sumLine = green.concat(orange); // 두 배열을 합침
+    document.write("병합 : " + sumLine + "<br>");
+    document.write("마지막 데이터 추가(push) : " + green.push("push") + "<br>"); // 끝에 추가후 length 리턴
+    document.write("마지막 데이터 삭제(pop) : " + green.pop() + "<br>"); // 끝에꺼 잘림, 잘라온값 리턴
+    document.write("결과 : " + green + "<br>");
+    //shift()  맨앞꺼 자름 pop과 반대~
+    //unshift() 맨앞에 추가 push 반대~
+    document.write("결과 스플 : " + green.splice(green.length-1, 1, "강북") + "<br>");
+    document.write("결과 스플 : " + green + "<br>");
+</script>
+</body>
+</html>

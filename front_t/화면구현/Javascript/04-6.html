@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>배열</title>
+</head>
+<body>
+<h1>배열</h1>
+<h2>배열의 출력</h2>
+<script>
+    var d = ["박수경", "우미타", "박진우", "이순근","문동주"];
+    //alert(d);
+    // alert(d[1]); // 인덱스 값으로 데이터를 getter
+    // alert(d.length);    // 데이터의 갯수
+    for(var i=0;i<d.length;i++){
+        document.write(d[i]+"<br>");
+    }
+</script>
+<h2>배열의 형별, 정렬</h2>
+<script>
+    var station = ["사당","교대","수원","강남"];
+    document.write("원본배열객체 : "+station+"<br>");
+    document.write("데이터타입 : "+typeof station[0]+"<br>");
+    document.write("연결문자 변환 : "+station.join(" / ")+"<br>");
+    document.write("데이터 역순 : "+station.reverse()+"<br>");
+    document.write("오름차순 정렬 : "+station.sort()+"<br>");
+</script>
+<h2>배열의 분할, 추가</h2>
+<script>
+    var green = ["사당","교대","방배","강남"],
+        orange = ["미금","정자","모란","수서"];
+    document.write("2호선 : "+green+"<br>");
+    document.write("3호선 : "+orange+"<br>");
+    green.splice(2,1,"서초"); // 2앞에서 자르고 1만큼 데이터를 잘라냄
+    document.write("2호선(splice) : "+green+"<br>");
+    green.splice(2,0,"서초"); // 2앞에서 자르고 데이터 추가
+    document.write("2호선(splice) : "+green+"<br>");
+</script>
+<h2>배열의 병합, 삭제</h2>
+<script>
+    var sumLine = green.concat(orange); // 두 배열을 합침
+    document.write("병합(concat) : "+sumLine+"<br>");
+    green.pop();    // 마지막 데이터를 삭제, 변수에 담거나 화면 출력시에는 마지막 데이터가 이용됨.
+    document.write("마지막 데이터 삭제(pop) : "+green+"<br>");
+    green.push("삼성");    // 마지막 데이터를 추가, 변수에 담거나 화면 출력시에는 마지막 데이터가 이용됨.
+    document.write("마지막 데이터 추가(push) : "+green+"<br>");
+    green.shift();    // 첫번째 데이터를 삭제, 변수에 담거나 화면 출력시에는 마지막 데이터가 이용됨.
+    document.write("첫번째 데이터 삭제(shift) : "+green+"<br>");
+    green.unshift("삼성");    // 마지막 데이터를 추가, 변수에 담거나 화면 출력시에는 마지막 데이터가 이용됨.
+    document.write("마지막 데이터 추가(unshift) : "+green+"<br>");
+</script>
+</body>
+</html>

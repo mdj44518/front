@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery : 페이지 디자인 설정</title>
+<link href="03-6.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<h1>페이지 디자인 꾸미기</h1>
+<div id="wrap">
+    <header>
+        <dl>
+            <dt>곡명:</dt> <dd>보약 같은 친구</dd>
+            <dt>아티스트:</dt> <dd>진시몬</dd>
+            <dt>작사자:</dt> <dd>진시몬 작사</dd>
+            <dt>작곡가:</dt> <dd>진시몬 작곡</dd>
+        </dl>
+    </header>
+    <section>
+        <p>
+            아침에 눈을 뜨면<br>
+            제일 먼저 생각나는<br>
+            자네는<br>
+            좋은 친구야<br>
+            피 한 방울 섞이지 않은<br>
+            우리 두 사람<br>
+            전생에<br>
+            인연일 거야<br>
+            자식보다 자네가 좋고<br>
+            돈보다 자네가 좋아<br>
+            자네와 난<br>
+            보약 같은 친구야<br>
+            아아아<br>
+            사는 날까지<br>
+            같이 가세<br>
+            보약 같은 친구야
+        </p>
+        <p>
+            사랑도 해 봤고<br>
+            이별도 해 봤지<br>
+            사는 거<br>
+            별거 없더라<br>
+            언제 갈지 모르는 인생<br>
+            우리 둘이서<br>
+            웃으며<br>
+            살아가 보자<br>
+            자식보다 자네가 좋고<br>
+            돈보다 자네가 좋아<br>
+            자네와 난<br>
+            보약 같은 친구야<br>
+            아아아<br>
+            사는 날까지<br>
+            같이 가세<br>
+            보약 같은 친구야<br>
+            자식보다 자네가 좋고<br>
+            돈보다 자네가 좋아<br>
+            자네와 난<br>
+            보약 같은 친구야<br>
+            아아아<br>
+            사는 날까지<br>
+            같이 가세<br>
+            보약 같은 친구야<br>
+            같이 가세<br>
+            보약 같은 친구야
+        </p>
+    </section>
+    <nav>
+        <ul>
+            <li><strong>배경색</strong><span class="screen_out"> : </span><input type="text" name="bg" id="bg"></li>
+            <li><strong>선두께</strong><span class="screen_out"> : </span>
+                <button class="line">+</button>
+                <button class="line">0</button>
+                <button class="line">-</button>
+            </li>
+            <li><strong>글자색</strong><span class="screen_out"> : </span><button class="color_bt">빨</button>
+                <button class="color_bt">주</button>
+                <button class="color_bt">노</button>
+                <button class="color_bt">초</button>
+                <button class="color_bt">파</button>
+            </li>
+            <li><strong>글자크기</strong><span class="screen_out"> : </span><button class="size">+</button>
+                <button class="size">0</button>
+                <button class="size">-</button></li>
+            <li><strong>글자모양</strong><span class="screen_out"> : </span><select name="text_color" id="text_color">
+                    <option value="gulim">굴림</option>
+                    <option value="dotum">돋움</option>
+                    <option value="malgun gothic">맑은고딕</option>
+                    <option value="gungsuh">궁서</option>
+                    <option value="batang">바탕</option>
+                </select></li>
+        </ul>
+    </nav>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    // 선두께
+    $(".line:eq(0)").click(function(){  // +버튼
+        var line=parseInt($("#wrap").css("border-width"));
+        $("#wrap").css("border-width",++line);
+    });
+    $(".line:eq(1)").click(function(){  // 초기화
+        $("#wrap").css("border-width",2)
+    });
+    $(".line:eq(2)").click(function(){  // -버튼
+        var line = parseInt($("#wrap").css("border-width"));
+        $("#wrap").css("border-width",--line)
+    });
+    
+    // 글자크기
+    $(".size:eq(0)").click(function(){  // +버튼
+        var size=parseInt($("section p").css("font-size"));
+        $("section p").css("font-size",++size);
+    });
+    $(".size:eq(1)").click(function(){  // 초기화
+        $("section p").css("font-size",16)
+    });
+    $(".size:eq(2)").click(function(){  // -버튼
+        var size = parseInt($("section p").css("font-size"));
+        $("section p").css("font-size",--size)
+    });
+    
+    // 글자색
+    $(".color_bt").click(function(){
+        var color=$(this).css("background-color");
+        $("section p").css("color",color);
+    });
+    
+    // 글자모양(서체)
+    $("#text_color").change(function(){
+        var font = $(this).val();
+        $("section p").css("font-family",font);
+    });
+    
+    // 배경색
+    $("#bg").keydown(function(e){
+        e?e:window.event;
+        if(e.keyCode==13){
+            var bg=$(this).val();
+            $("#wrap").css("background-color",bg);
+        }
+    });
+    
+</script>
+</body>
+</html>

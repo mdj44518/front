@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>가위바위보</title>
+<script>
+    document.write("<h1>가위바위보 게임</h1>");
+    // 유저값 지정
+    var human = prompt("가위/바위/보","가위"),result;
+    switch(human) {
+        case "가위" : human=1; break;
+        case "바위" : human=2; break;
+        case "보" : human=3; break;
+        default : alert("가위바위보를 바르게 입력해 주세요!");
+    }
+    // 컴퓨터랜덤값 지정
+    var com = Math.ceil(Math.random()*3); // 3:필요한 수량
+    document.write("<img src=img/"+com+".jpg alt='컴퓨터'>");
+    document.write("<img src=img/"+human+".jpg alt='사용자'>");
+    // 결과값 출력
+    var fight = com - human; // -2 ~ 2
+    if(fight==0) {result="비겼습니다."}
+    else if(fight==2 || fight==-1) {result="이겼습니다."}
+    else {result="졌습니다."} 
+    document.write("<p>"+result+"</p>");
+    
+</script>
+</head>
+<body>
+
+</body>
+</html>

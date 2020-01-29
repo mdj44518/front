@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>속성조작 메서드</title>
+<style>
+    .redBox {background-color:red;color:#fff;}
+</style>
+</head>
+<body>
+<h1>jQuery : 속성조작 메서드</h1>
+<ul id="memo">
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+</ul>
+<select id="site" name="site">
+    <option value="naver">네이버</option>
+    <option value="daum">다음</option>
+    <option value="google" selected>구글</option>
+</select>
+<button>확인</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var change;
+    // 문제) li:eq(0)의 내용 수정 :<p>저는 문장 html</p>
+    // 문제) li:eq(1)의 내용 수정 :저는 문장 text
+    $("li:eq(0)").html("<p>저는 문장 html</p>");
+    $("li:eq(1)").text("저는 문장 text");
+    // 문제) li:eq(2) 토글클래스 적용
+    $("li:eq(2)").click(function(){
+        if(!change) $(this).text("토글버튼");
+        $(this).toggleClass("redBox");
+        change="changed";
+    });
+    // 문제) li:eq(3) 클릭하여 title속성 부여
+    $("li:eq(3)").click(function(){
+        $(this).attr("title","타이틀 지정됨");
+    });
+    
+    // 문제) 버튼을 누르면 선택된 option의 value값을 경고창으로.
+    
+    $("button").click(function(){
+        var site = $("#site").val();
+        alert(site);
+    });
+    
+    
+</script>
+</body>
+</html>
